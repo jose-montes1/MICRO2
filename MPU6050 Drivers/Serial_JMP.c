@@ -16,10 +16,6 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////UART functionality
-
-
-
-
 /*
  * Sets up the baud generator for a specific frequency
  * Parameters-
@@ -64,7 +60,7 @@ void uart_setup(long baudRate){
 		}
 	}
 	UCA0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
-	UCA0IE |= UCRXIE;                         // Enable USCI_A0 RX interrupt
+	//UCA0IE |= UCRXIE;                         // Enable USCI_A0 RX interrupt
 }
 
 void transmit_byte(char byte){
@@ -82,21 +78,75 @@ void serial_print(char *string){
 
 
 
-
-
-
+//UART Interrupt Vector
 #pragma vector=USCI_A0_VECTOR
 __interrupt void USCI_A0_ISR(void){
-
 	if(UCA0IV == 0x02){
 		buff = UCA0RXBUF;
 		//LPM3_EXIT;
 	}
 }
+///// END OF UART
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+///// I2C Functionality
+unsigned char TXData;
+unsigned char TXByteCtr;
+int Rx;
+void transmit(char byte){
+	Rx = 0;
+	TXData = byte;
+    while (UCB0CTL1 & UCTXSTP);             // Ensure stop condition got sent
+    UCB0CTL1 |= UCTR + UCTXSTT;             // I2C TX, start condition
+    __bis_SR_register(LPM0_bits + GIE);        // Enter LPM0 w/ interrupts
+}
+void receive(void){
+    Rx = 1;
+	__bic_SR_register(GIE);
+	while (UCB0CTL1 & UCTXSTP);             // Ensure stop condition got sent
+	UCB0CTL1 &= ~UCTR ;                     // Clear UCTR
+	UCB0CTL1 |= UCTXSTT;                    // I2C start condition
+	while (UCB0CTL1 & UCTXSTT);             // Start condition sent?
+	UCB0CTL1 |= UCTXSTP;                    // I2C stop condition
+	__bis_SR_register(LPM0_bits + GIE);     // Enter LPM0 w/ interrupts
+}
 
+void i2cSetup(int baudRate){
 
+  P3SEL |= 0x03;                            // Assign I2C pins to USCI_B0
+  UCB0CTL1 |= UCSWRST;                      // Enable SW reset
+  UCB0CTL0 = UCMST + UCMODE_3 + UCSYNC;     // I2C Master, synchronous mode
+  UCB0CTL1 = UCSSEL_2 + UCSWRST;            // Use SMCLK, keep SW reset
+  if(baudRate == 10000){
+	UCB0BR0 = 105;                             // fSCL = SMCLK/12 = ~10kHz
+	UCB0BR1 = 0;
+  
+  }
+  UCB0I2CSA = 0x68;                         // Slave Address is 048h
+  UCB0CTL1 &= ~UCSWRST;                     // Clear SW reset, resume operation
+  UCB0IE |= UCRXIE + UCTXIE;
 
+}
+#pragma vector = USCI_B0_VECTOR
+__interrupt void USCI_B0_ISR(void){
+  if(Rx){
+	  buff = UCB0RXBUF;
+	  UCB0IFG &= ~UCRXIFG;
+	  __bic_SR_register_on_exit(LPM0_bits);
+  }							 // Vector 12: TXIFG
+  else{
+	if (TXByteCtr){                          // Check TX byte counter
 
+	  UCB0TXBUF = TXData;                   // Load TX buffer
+	  TXByteCtr--;                          // Decrement TX byte counter
+	}
+	else{
+	  UCB0CTL1 |= UCTXSTP;                  // I2C stop condition
+	  UCB0IFG &= ~UCTXIFG;                  // Clear USCI_B0 TX int flag
+	  __bic_SR_register_on_exit(LPM0_bits); // Exit LPM0
+	}
+  }
+}
 
 
 
