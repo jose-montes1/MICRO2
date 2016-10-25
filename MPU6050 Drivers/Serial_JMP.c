@@ -67,7 +67,17 @@ void uart_setup(long baudRate){
 	UCA0IE |= UCRXIE;                         // Enable USCI_A0 RX interrupt
 }
 
-void transmit(char byte){
+void transmit_byte(char byte){
+	while(!(UCA0IFG));
+	UCA0TXBUFF = byte;
+}
+
+
+void serial_print(char *string){
+	while(*string){
+		transmit(*string);
+		string++;
+	}
 }
 
 
@@ -75,10 +85,14 @@ void transmit(char byte){
 
 
 
+#pragma vector=USCI_A0_VECTOR
+__interrupt void USCI_A0_ISR(void){
 
-
-
-
+	if(UCA0IV == 0x02){
+		buff = UCA0RXBUF;
+		//LPM3_EXIT;
+	}
+}
 
 
 
