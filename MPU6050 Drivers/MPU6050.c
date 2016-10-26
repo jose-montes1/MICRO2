@@ -1,4 +1,4 @@
-#include "MPU605.0.h"
+#include "MPU6050.h"
 #include "Serial_JMP.h"
 #include <math.h>
 /*
@@ -44,10 +44,6 @@ int accelXout_H, accelXout_L;
 int accelYout_H, accelYout_L;
 int accelZout_H, accelZout_L;
 
-//Sensitivity
-#define gyroXsensitivity 500
-#define gyroYsensitivity 500
-#define gyroZsensitivity 500
 
 
 /***********************************************************
@@ -60,12 +56,12 @@ int accelZout_H, accelZout_L;
  *********************************************************/
 
 void mpu_test_connection(){
-	unsigned char address;
-	I2C_read(MPU6050_ADDRESS, MPU6050_RA_WHAT_AM_I, &address, 1);
-	if(address == MPU_ADDRESS){
-		serial_print(success, "MPU6500");
+	int address;
+	I2C_read(MPU6050_ADDRESS, MPU6050_RA_WHO_AM_I, &address, 1);
+	if(address == MPU6050_ADDRESS){
+		UART_print_status(SUCCESS, "MPU6500");
 	}else{
-		serial_print(fail, "MPU6500");
+		UART_print_status(FAIL, "MPU6500");
 		while(1);
 	}
 }
@@ -127,22 +123,22 @@ void mpu_setup(void){
     //Enable data ready interrupt
     I2C_write(MPU6050_ADDRESS, MPU6050_RA_INT_ENABLE, 0x00);
     //Slave out, dont care
-    LDByteWriteI2C(MPU6050_ADDRESS, MPU6050_RA_I2C_SLV0_DO, 0x00);
-    LDByteWriteI2C(MPU6050_ADDRESS, MPU6050_RA_I2C_SLV1_DO, 0x00);
-    LDByteWriteI2C(MPU6050_ADDRESS, MPU6050_RA_I2C_SLV2_DO, 0x00);
-    LDByteWriteI2C(MPU6050_ADDRESS, MPU6050_RA_I2C_SLV3_DO, 0x00);
+    I2C_write(MPU6050_ADDRESS, MPU6050_RA_I2C_SLV0_DO, 0x00);
+    I2C_write(MPU6050_ADDRESS, MPU6050_RA_I2C_SLV1_DO, 0x00);
+    I2C_write(MPU6050_ADDRESS, MPU6050_RA_I2C_SLV2_DO, 0x00);
+    I2C_write(MPU6050_ADDRESS, MPU6050_RA_I2C_SLV3_DO, 0x00);
     //More slave config
-    LDByteWriteI2C(MPU6050_ADDRESS, MPU6050_RA_I2C_MST_DELAY_CTRL, 0x00);
+    I2C_write(MPU6050_ADDRESS, MPU6050_RA_I2C_MST_DELAY_CTRL, 0x00);
     //Reset sensor signal paths
-    LDByteWriteI2C(MPU6050_ADDRESS, MPU6050_RA_SIGNAL_PATH_RESET, 0x00);
+    I2C_write(MPU6050_ADDRESS, MPU6050_RA_SIGNAL_PATH_RESET, 0x00);
     //Motion detection control
-    LDByteWriteI2C(MPU6050_ADDRESS, MPU6050_RA_MOT_DETECT_CTRL, 0x00);
+    I2C_write(MPU6050_ADDRESS, MPU6050_RA_MOT_DETECT_CTRL, 0x00);
 	//Disables FIFO, AUX I2C, FIFO and I2C reset bits to 0
-	LDByteWriteI2C(MPU6050_ADDRESS, MPU6050_RA_USER_CTRL, 0x00);
+    I2C_write(MPU6050_ADDRESS, MPU6050_RA_USER_CTRL, 0x00);
 	//Sets clock source to gyro reference w/ PLL
-	LDByteWriteI2C(MPU6050_ADDRESS, MPU6050_RA_PWR_MGMT_1, 0b00000010);
+    I2C_write(MPU6050_ADDRESS, MPU6050_RA_PWR_MGMT_1, 0b00000010);
 	//Controls frequency of wakeups in accel low power mode plus the sensor standby modes
-	LDByteWriteI2C(MPU6050_ADDRESS, MPU6050_RA_PWR_MGMT_2, 0x00);
+    I2C_write(MPU6050_ADDRESS, MPU6050_RA_PWR_MGMT_2, 0x00);
 	//MPU6050_RA_BANK_SEL            //Not in datasheet
 	//MPU6050_RA_MEM_START_ADDR        //Not in datasheet
 	//MPU6050_RA_MEM_R_W            //Not in datasheet
@@ -151,10 +147,10 @@ void mpu_setup(void){
 	//MPU6050_RA_FIFO_COUNTH        //Read-only
 	//MPU6050_RA_FIFO_COUNTL        //Read-only
 	//Data transfer to and from the FIFO buffer
-	LDByteWriteI2C(MPU6050_ADDRESS, MPU6050_RA_FIFO_R_W, 0x00);
+    I2C_write(MPU6050_ADDRESS, MPU6050_RA_FIFO_R_W, 0x00);
 	//MPU6050_RA_WHO_AM_I             //Read-only, I2C address
 
-      serial_print(success, "MPU6050 Setup Complete");
+    UART_print_status(SUCCESS, "MPU6050 Setup Complete");
 }
 
 /*********************************************************************
@@ -172,8 +168,8 @@ void mpu_calibrate_Gyro(){
 	int gyroZOffsetSum = 0;
 
 
-	int interations = 0;
-	for(interations = 0; iterations < 1000; iterations++){
+	int iterations = 0;
+	for(iterations = 0; iterations < 1000; iterations++){
 		I2C_read(MPU6050_ADDRESS, MPU6050_RA_GYRO_XOUT_H, &gyroXout_H, 1);
 		I2C_read(MPU6050_ADDRESS, MPU6050_RA_GYRO_XOUT_L, &gyroXout_L, 1);
 		I2C_read(MPU6050_ADDRESS, MPU6050_RA_GYRO_YOUT_H, &gyroYout_H, 1);
@@ -184,17 +180,18 @@ void mpu_calibrate_Gyro(){
 		gyroXOffsetSum += ((gyroXout_H << 8) |gyroXout_L);
 		gyroYOffsetSum += ((gyroYout_H << 8) |gyroYout_L);
 		gyroZOffsetSum += ((gyroZout_H << 8) |gyroZout_L);
-		delay(1);
+		//delay(1);
+		__delay_cycles(10500);
 
 	}
 	gyroXoutOffset = gyroXOffsetSum/1000;
 	gyroYoutOffset = gyroYOffsetSum/1000;
-	gyroZoutOffset = gyroZoffsetSum/1000;
-
-	serial_print("Calibration done, X offset: ", gyroXoutOffset);
-	serial_print("Calibration done, Y offset: ", gyroYoutOffset);
-	serial_print("Calibration done, Z offset: ", gyroZoutOffset);
-
+	gyroZoutOffset = gyroZOffsetSum/1000;
+/*
+	UART_print_status("Calibration done, X offset: ", gyroXoutOffset);
+	UART_print_status("Calibration done, Y offset: ", gyroYoutOffset);
+	UART_print_status("Calibration done, Z offset: ", gyroZoutOffset);
+*/
 }
 /**********************************************************************************
  * Reads raw accelerometer values
@@ -238,11 +235,11 @@ void mpu_calc_accel_angles(){
 void mpu_read_gyro_rate(){
 
 	I2C_read(MPU6050_ADDRESS, MPU6050_RA_GYRO_XOUT_H, &gyroXout_H, 1);
-	I2C_read(MPU6050_ADDRESS, MPU6050_RA_GYRO_XOUT_H, &gyroXout_L, 1);
-	I2C_read(MPU6050_ADDRESS, MPU6050_RA_GYRO_XOUT_H, &gyroXout_H, 1);
-	I2C_read(MPU6050_ADDRESS, MPU6050_RA_GYRO_XOUT_H, &gyroXout_L, 1);
-	I2C_read(MPU6050_ADDRESS, MPU6050_RA_GYRO_XOUT_H, &gyroXout_H, 1);
-	I2C_read(MPU6050_ADDRESS, MPU6050_RA_GYRO_XOUT_H, &gyroXout_L, 1);
+	I2C_read(MPU6050_ADDRESS, MPU6050_RA_GYRO_XOUT_L, &gyroXout_L, 1);
+	I2C_read(MPU6050_ADDRESS, MPU6050_RA_GYRO_YOUT_H, &gyroYout_H, 1);
+	I2C_read(MPU6050_ADDRESS, MPU6050_RA_GYRO_YOUT_L, &gyroYout_L, 1);
+	I2C_read(MPU6050_ADDRESS, MPU6050_RA_GYRO_ZOUT_H, &gyroZout_H, 1);
+	I2C_read(MPU6050_ADDRESS, MPU6050_RA_GYRO_ZOUT_L, &gyroZout_L, 1);
 
 	gyroXout = ((gyroXout_H << 8) | gyroXout_L) - gyroXoutOffset;
 	gyroYout = ((gyroXout_H << 8) | gyroXout_L) - gyroYoutOffset;
@@ -252,19 +249,15 @@ void mpu_read_gyro_rate(){
 	gyroYout = (float)gyroYout/gyroYsensitivity;
 	gyroZout = (float)gyroZout/gyroZsensitivity;
 }
-
+/*
 void mpu_print(){
 
-	serial_print("X accel: ", accelXout);
-	serial_print("\nY accel: ", accelYout);
-	serial_print("\nY accel: ", accelZout);
-	serial_print("\nX gyro: ", gyroXout);
-	serial_print("\nY gyro: ", gyroYout);
-	serial_print("\nZ gyro: ", gyroZout);
+	UART_serial_print("X accel: ", accelXout);
+	UART_serial_print("\nY accel: ", accelYout);
+	UART_serial_print("\nY accel: ", accelZout);
+	UART_serial_print("\nX gyro: ", gyroXout);
+	UART_serial_print("\nY gyro: ", gyroYout);
+	UART_serial_print("\nZ gyro: ", gyroZout);
 
 }
-
-
-int main(void){
-	return;
-}
+*/
