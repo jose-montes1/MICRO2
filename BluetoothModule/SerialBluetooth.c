@@ -84,12 +84,10 @@ __interrupt void USCI_A0_ISR(void){
 		case 'K':{
 			if(midFlag) {
 				BTConnected = 0;
-				P1OUT |= BIT0;
 				break;
 			}
 		}
 		default:{
-			P1OUT &= ~BIT0;
 			while (!(UCA0IFG&UCTXIFG));				 // USCI_A0 TX buffer ready?
 			UCA0TXBUF = UCA0RXBUF;					 // Send received character
 			BTConnected = 1;
