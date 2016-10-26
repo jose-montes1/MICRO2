@@ -1,18 +1,53 @@
+#include <msp430.h>
+#include "General_JMP.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+/*
+ * General_JMP.c
+ *
+ *  Created on: Oct 26, 2016
+ *      Author: jose.montes1
+ *
+ * A collection of of methods utilized in
+ * the laboratories for MICRO 2
+ *
+ *
+ */
+
+
 
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////// Timer Commands ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*\****************************************************************
+ *Function Description
+ *		Disables interrupts that you dont want to interrupt a delay
+ *Parameters
+ *		On - set 1 to enable interrupts and set a 0 to disable the
+ *			interrupts
+ *
+ *\****************************************************************/
+
 void interrupts(char on){
 	if(on){
-		UCB0IE |= (UCRXIE + UCTXIE);
-		P1IE |= (BIT2 + BIT3 + BIT4);
+
 	}
 	else{
-		UCB0IE &= ~(UCRXIE + UCTXIE);
-		P1IE &= ~(BIT2 + BIT3 +BIT4);
 	}
 }
+
+/*\****************************************************************
+ *Function Description
+ *		Delays the micro a certain amount of time while setting
+ *		it in low power mode.
+ *Parameters
+ *		Miliseconds - miliseconds to wait
+ *
+ *\****************************************************************/
+
 void delay(unsigned long miliSeconds){
 	unsigned long operations = (32768*miliSeconds)/1000;
 	TB0CTL |= TBCLR; 				// Clear Timer content
@@ -28,6 +63,13 @@ void delay(unsigned long miliSeconds){
 
 	return;
 }
+/*\****************************************************************
+ *Function Description
+ *		Timer B interrupt. Disables the running timer delay
+ *Parameters
+ *
+ *
+ *\****************************************************************/
 
 #pragma vector = TIMER0_B0_VECTOR
 __interrupt void TIMER_B0(void){
@@ -42,6 +84,15 @@ __interrupt void TIMER_B0(void){
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////// Lcd Commands
+/*\****************************************************************
+ *Function Description
+ *		Sends a command to the lcd
+ *Parameters
+ *		cmd - Command to sent the LCD
+ *
+ *\****************************************************************/
+
+
 void command(char cmd) {
 
 	char c = cmd;					// Locally store command
@@ -56,6 +107,13 @@ void command(char cmd) {
 	P2OUT &= ~0xF0; 				// CLEAR MSBs
 
 }
+/*\****************************************************************
+ *Function Description
+ *		Writes data in the form of a char onto the LCD
+ *Parameters
+ *		data - Char to send
+ *
+ *\****************************************************************/
 
 void write(char data) {
 
@@ -71,6 +129,13 @@ void write(char data) {
 	P2OUT &= ~0xF0; 				//CLEAR MSBs
 
 }
+/*\****************************************************************
+ *Function Description
+ *		Writes a char* onto the LCD
+ *Parameters
+ *		str - String to write
+ *
+ *\****************************************************************/
 
 void write_str(char *str) {
 	while(*str) {
@@ -102,6 +167,13 @@ void clear_lcd() {
 	delay(10);
 	cursor_top();
 }
+/*\****************************************************************
+ *Function Description
+ *		Initialices the LCD display
+ *Parameters
+ *
+ *
+ *\****************************************************************/
 
 void lcdInit() {
 
@@ -135,8 +207,17 @@ void lcdInit() {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////// Number methods
-void reverse(char s[])
-{
+
+/*\****************************************************************
+ *Function Description
+ *		Reverse the char array you input
+ *Parameters
+ *
+ *
+ *\****************************************************************/
+
+
+void reverse(char s[]){
     int i, j;
     char c;
 
@@ -147,9 +228,17 @@ void reverse(char s[])
     }
 }
 
+/*\****************************************************************
+ *Function Description
+ *		Converts an integet into a char array
+ *Parameters
+ *		n - number to convert
+ *		s - array to fill
+ *
+ *\****************************************************************/
 
-void itoa(int n, char s[])
- {
+
+void itoa(int n, char s[]){
      int i, sign;
 
      if ((sign = n) < 0)  /* record sign */

@@ -1,7 +1,7 @@
 ******************************************************************************
-                  MSP430 Linker PC v15.12.3                    
+                  MSP430 Linker PC v16.6.0                     
 ******************************************************************************
->> Linked Wed Oct 26 00:11:07 2016
+>> Linked Wed Oct 26 12:48:07 2016
 
 OUTPUT FILE NAME:   <MPU6050 Drivers.out>
 ENTRY POINT SYMBOL: "_c_int00_noargs_noexit"  address: 00004480
@@ -19,8 +19,8 @@ MEMORY CONFIGURATION
   INFOB                 00001900   00000080  00000000  00000080  RWIX
   INFOA                 00001980   00000080  00000000  00000080  RWIX
   USBRAM                00001c00   00000800  00000000  00000800  RWIX
-  RAM                   00002400   00002000  000000ab  00001f55  RWIX
-  FLASH                 00004400   0000bb80  00000110  0000ba70  RWIX
+  RAM                   00002400   00002000  000000d5  00001f2b  RWIX
+  FLASH                 00004400   0000bb80  0000020e  0000b972  RWIX
   INT00                 0000ff80   00000002  00000000  00000002  RWIX
   INT01                 0000ff82   00000002  00000000  00000002  RWIX
   INT02                 0000ff84   00000002  00000000  00000002  RWIX
@@ -85,7 +85,7 @@ MEMORY CONFIGURATION
   INT61                 0000fffa   00000002  00000002  00000000  RWIX
   INT62                 0000fffc   00000002  00000002  00000000  RWIX
   RESET                 0000fffe   00000002  00000002  00000000  RWIX
-  FLASH2                00010000   00014400  00000298  00014168  RWIX
+  FLASH2                00010000   00014400  00000c10  000137f0  RWIX
 
 
 SECTION ALLOCATION MAP
@@ -93,38 +93,61 @@ SECTION ALLOCATION MAP
  output                                  attributes/
 section   page    origin      length       input sections
 --------  ----  ----------  ----------   ----------------
-.bss       0    00002400    0000000b     UNINITIALIZED
+.bss       0    00002400    00000035     UNINITIALIZED
                   00002400    00000004     (.common:rxDest)
                   00002404    00000002     (.common:Rx)
-                  00002406    00000001     (.common:rxByteCtr)
-                  00002407    00000001     (.common:txAddress)
-                  00002408    00000001     (.common:txByteCtr)
-                  00002409    00000001     (.common:txData)
-                  0000240a    00000001     (.common:uartBuff)
+                  00002406    00000002     (.common:accelXout)
+                  00002408    00000002     (.common:accelXout_H)
+                  0000240a    00000002     (.common:accelXout_L)
+                  0000240c    00000002     (.common:accelYout)
+                  0000240e    00000002     (.common:accelYout_H)
+                  00002410    00000002     (.common:accelYout_L)
+                  00002412    00000002     (.common:accelZout)
+                  00002414    00000002     (.common:accelZout_H)
+                  00002416    00000002     (.common:accelZout_L)
+                  00002418    00000002     (.common:gyroXout)
+                  0000241a    00000002     (.common:gyroXoutOffset)
+                  0000241c    00000002     (.common:gyroXout_H)
+                  0000241e    00000002     (.common:gyroXout_L)
+                  00002420    00000002     (.common:gyroYout)
+                  00002422    00000002     (.common:gyroYoutOffset)
+                  00002424    00000002     (.common:gyroYout_H)
+                  00002426    00000002     (.common:gyroYout_L)
+                  00002428    00000002     (.common:gyroZout)
+                  0000242a    00000002     (.common:gyroZoutOffset)
+                  0000242c    00000002     (.common:gyroZout_H)
+                  0000242e    00000002     (.common:gyroZout_L)
+                  00002430    00000001     (.common:rxByteCtr)
+                  00002431    00000001     (.common:txAddress)
+                  00002432    00000001     (.common:txByteCtr)
+                  00002433    00000001     (.common:txData)
+                  00002434    00000001     (.common:uartBuff)
 
 .stack     0    00004360    000000a0     UNINITIALIZED
                   00004360    00000004     rts430x_lc_rd_eabi.lib : boot.obj (.stack)
                   00004364    0000009c     --HOLE--
 
 .text:_isr 
-*          0    00004400    000000b6     
+*          0    00004400    000000ca     
                   00004400    00000080     Serial_JMP.obj (.text:_isr:USCI_B0_ISR)
                   00004480    0000001a     rts430x_lc_rd_eabi.lib : boot_special.obj (.text:_isr:_c_int00_noargs_noexit)
-                  0000449a    00000014     Serial_JMP.obj (.text:_isr:USCI_A0_ISR)
-                  000044ae    00000008     rts430x_lc_rd_eabi.lib : isr_trap.obj (.text:_isr:__TI_ISR_TRAP)
+                  0000449a    00000014     General_JMP.obj (.text:_isr:TIMER_B0)
+                  000044ae    00000014     Serial_JMP.obj (.text:_isr:USCI_A0_ISR)
+                  000044c2    00000008     rts430x_lc_rd_eabi.lib : isr_trap.obj (.text:_isr:__TI_ISR_TRAP)
 
-.cinit     0    000044fe    00000012     
-                  000044fe    00000006     (.cinit..bss.load) [load image, compression = zero_init]
-                  00004504    00000004     (__TI_handler_table)
-                  00004508    00000008     (__TI_cinit_table)
+.cinit     0    000045fc    00000012     
+                  000045fc    00000006     (.cinit..bss.load) [load image, compression = zero_init]
+                  00004602    00000004     (__TI_handler_table)
+                  00004606    00000008     (__TI_cinit_table)
 
 .binit     0    00004400    00000000     
 
 .init_array 
 *          0    00004400    00000000     UNINITIALIZED
 
-.const     0    000044b6    00000048     
-                  000044b6    00000048     MPU6050.obj (.const:.string)
+.const     0    000044ca    00000132     
+                  000044ca    00000108     MPU6050.obj (.const:.string)
+                  000045d2    0000002a     main.obj (.const:.string)
 
 RTC        0    0000ffd2    00000002     
                   0000ffd2    00000002     rts430x_lc_rd_eabi.lib : int41.obj (.int41)
@@ -189,7 +212,7 @@ TIMER0_B1
 
 TIMER0_B0 
 *          0    0000fff6    00000002     
-                  0000fff6    00000002     rts430x_lc_rd_eabi.lib : int59.obj (.int59)
+                  0000fff6    00000002     General_JMP.obj (.int59)
 
 COMP_B     0    0000fff8    00000002     
                   0000fff8    00000002     rts430x_lc_rd_eabi.lib : int60.obj (.int60)
@@ -203,41 +226,69 @@ SYSNMI     0    0000fffc    00000002
 .reset     0    0000fffe    00000002     
                   0000fffe    00000002     rts430x_lc_rd_eabi.lib : boot.obj (.reset)
 
-.text      0    00010000    00000298     
-                  00010000    00000082     rts430x_lc_rd_eabi.lib : autoinit_wdt.obj (.text:_auto_init_hold_wdt)
-                  00010082    00000066                            : cpy_tbl.obj (.text:copy_in)
-                  000100e8    00000060     Serial_JMP.obj (.text:I2C_setup)
-                  00010148    00000042     Serial_JMP.obj (.text:I2C_read)
-                  0001018a    0000003a     MPU6050.obj (.text:mpu_test_connection)
-                  000101c4    0000002c     Serial_JMP.obj (.text:I2C_write)
-                  000101f0    00000028     Serial_JMP.obj (.text:UART_print_status)
-                  00010218    00000024     rts430x_lc_rd_eabi.lib : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
-                  0001023c    00000018     main.obj (.text:main)
-                  00010254    00000018     rts430x_lc_rd_eabi.lib : mult16_f5hw.obj (.text)
-                  0001026c    00000014                            : memcpy.obj (.text:memcpy)
-                  00010280    0000000c     Serial_JMP.obj (.text:UART_transmit_byte)
-                  0001028c    00000006     rts430x_lc_rd_eabi.lib : exit.obj (.text:abort)
-                  00010292    00000004                            : pre_init.obj (.text:_system_pre_init)
-                  00010296    00000002                            : startup.obj (.text:_system_post_cinit)
+.text      0    00010000    00000c10     
+                  00010000    0000025c     MPU6050.obj (.text:mpu_setup)
+                  0001025c    00000106     MPU6050.obj (.text:mpu_calibrate_gyro)
+                  00010362    000000f4     MPU6050.obj (.text:mpu_read_gyro_rate)
+                  00010456    000000a4     Serial_JMP.obj (.text:UART_setup)
+                  000104fa    0000009e     MPU6050.obj (.text:mpu_read_accel)
+                  00010598    00000090     rts430x_lc_rd_eabi.lib : fs_div.obj (.text)
+                  00010628    00000082                            : autoinit_wdt.obj (.text:_auto_init_hold_wdt)
+                  000106aa    0000006a     General_JMP.obj (.text:itoa)
+                  00010714    00000068     rts430x_lc_rd_eabi.lib : fs_toi.obj (.text)
+                  0001077c    00000066                            : cpy_tbl.obj (.text:copy_in)
+                  000107e2    00000064     main.obj (.text:main)
+                  00010846    00000060     Serial_JMP.obj (.text:I2C_setup)
+                  000108a6    00000058     rts430x_lc_rd_eabi.lib : div32u.obj (.text)
+                  000108fe    0000004a     MPU6050.obj (.text:mpu_print)
+                  00010948    00000046     General_JMP.obj (.text:reverse)
+                  0001098e    00000042     Serial_JMP.obj (.text:I2C_read)
+                  000109d0    0000003e     Serial_JMP.obj (.text:UART_print_value)
+                  00010a0e    0000003e     rts430x_lc_rd_eabi.lib : lsl32.obj (.text:l_lsl_const)
+                  00010a4c    0000003a     MPU6050.obj (.text:mpu_test_connection)
+                  00010a86    00000036     rts430x_lc_rd_eabi.lib : fs_itof.obj (.text)
+                  00010abc    00000032     General_JMP.obj (.text:delay)
+                  00010aee    0000002c     Serial_JMP.obj (.text:I2C_write)
+                  00010b1a    0000002c     rts430x_lc_rd_eabi.lib : div16s.obj (.text)
+                  00010b46    00000028     Serial_JMP.obj (.text:UART_print_status)
+                  00010b6e    00000024     rts430x_lc_rd_eabi.lib : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
+                  00010b92    00000018                            : mult16_f5hw.obj (.text)
+                  00010baa    00000016     Serial_JMP.obj (.text:UART_print)
+                  00010bc0    00000016     rts430x_lc_rd_eabi.lib : div16u.obj (.text)
+                  00010bd6    00000014                            : memcpy.obj (.text:memcpy)
+                  00010bea    0000000e                            : strlen.obj (.text:strlen)
+                  00010bf8    0000000c     Serial_JMP.obj (.text:UART_transmit_byte)
+                  00010c04    00000006     rts430x_lc_rd_eabi.lib : exit.obj (.text:abort)
+                  00010c0a    00000004                            : pre_init.obj (.text:_system_pre_init)
+                  00010c0e    00000002                            : startup.obj (.text:_system_post_cinit)
 
 MODULE SUMMARY
 
        Module               code   ro data   rw data
        ------               ----   -------   -------
     .\
-       Serial_JMP.obj       406    4         11     
-       MPU6050.obj          58     72        0      
-       main.obj             24     0         0      
+       MPU6050.obj          1400   264       42     
+       Serial_JMP.obj       654    4         11     
+       General_JMP.obj      246    2         0      
+       main.obj             100    42        0      
     +--+--------------------+------+---------+---------+
-       Total:               488    76        11     
+       Total:               2400   312       53     
                                                     
-    C:\ti\ccsv6\tools\compiler\msp430_15.12.3.LTS\lib\rts430x_lc_rd_eabi.lib
+    C:\ti\ccsv6\tools\compiler\ti-cgt-msp430_16.6.0.STS\lib\rts430x_lc_rd_eabi.lib
+       fs_div.obj           144    0         0      
        autoinit_wdt.obj     130    0         0      
+       fs_toi.obj           104    0         0      
        cpy_tbl.obj          102    0         0      
+       div32u.obj           88     0         0      
+       lsl32.obj            62     0         0      
+       fs_itof.obj          54     0         0      
+       div16s.obj           44     0         0      
        copy_zero_init.obj   36     0         0      
        boot_special.obj     26     0         0      
        mult16_f5hw.obj      24     0         0      
+       div16u.obj           22     0         0      
        memcpy.obj           20     0         0      
+       strlen.obj           14     0         0      
        isr_trap.obj         8      0         0      
        exit.obj             6      0         0      
        pre_init.obj         4      0         0      
@@ -258,29 +309,28 @@ MODULE SUMMARY
        int54.obj            0      2         0      
        int57.obj            0      2         0      
        int58.obj            0      2         0      
-       int59.obj            0      2         0      
        int60.obj            0      2         0      
        int61.obj            0      2         0      
        int62.obj            0      2         0      
        startup.obj          2      0         0      
     +--+--------------------+------+---------+---------+
-       Total:               358    42        0      
+       Total:               890    40        0      
                                                     
        Stack:               0      0         160    
        Linker Generated:    0      18        0      
     +--+--------------------+------+---------+---------+
-       Grand Total:         846    136       171    
+       Grand Total:         3290   370       213    
 
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 00004508 records: 1, size/record: 8, table size: 8
-	.bss: load addr=000044fe, load size=00000006 bytes, run addr=00002400, run size=0000000b bytes, compression=zero_init
+__TI_cinit_table @ 00004606 records: 1, size/record: 8, table size: 8
+	.bss: load addr=000045fc, load size=00000006 bytes, run addr=00002400, run size=00000035 bytes, compression=zero_init
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 00004504 records: 1, size/record: 4, table size: 4
+__TI_handler_table @ 00004602 records: 1, size/record: 4, table size: 4
 	index: 0, handler: __TI_zero_init
 
 
@@ -370,7 +420,7 @@ address   name
 00000732  ADC12MEM9               
 00000733  ADC12MEM9_H             
 00000732  ADC12MEM9_L             
-0001028c  C$$EXIT                 
+00010c04  C$$EXIT                 
 000008c0  CBCTL0                  
 000008c1  CBCTL0_H                
 000008c0  CBCTL0_L                
@@ -456,9 +506,9 @@ address   name
 00000146  FCTL4                   
 00000147  FCTL4_H                 
 00000146  FCTL4_L                 
-00010148  I2C_read                
-000100e8  I2C_setup               
-000101c4  I2C_write               
+0001098e  I2C_read                
+00010846  I2C_setup               
+00010aee  I2C_write               
 000004c4  MAC                     
 000004da  MAC32H                  
 000004db  MAC32H_H                
@@ -803,8 +853,12 @@ address   name
 000003e0  TB0EX0                  
 000003ee  TB0IV                   
 000003d0  TB0R                    
-000101f0  UART_print_status       
-00010280  UART_transmit_byte      
+0000449a  TIMER_B0                
+00010baa  UART_print              
+00010b46  UART_print_status       
+000109d0  UART_print_value        
+00010456  UART_setup              
+00010bf8  UART_transmit_byte      
 000005d0  UCA0ABCTL               
 000005c6  UCA0BRW                 
 000005c7  UCA0BRW_H               
@@ -1040,7 +1094,7 @@ address   name
 00000932  USBVECINT               
 00000933  USBVECINT_H             
 00000932  USBVECINT_L             
-0000449a  USCI_A0_ISR             
+000044ae  USCI_A0_ISR             
 00004400  USCI_B0_ISR             
 0000015c  WDTCTL                  
 0000015d  WDTCTL_H                
@@ -1049,13 +1103,13 @@ address   name
 000000a0  __STACK_SIZE            
 UNDEFED   __TI_BINIT_Base         
 UNDEFED   __TI_BINIT_Limit        
-00004508  __TI_CINIT_Base         
-00004510  __TI_CINIT_Limit        
-00004504  __TI_Handler_Table_Base 
-00004508  __TI_Handler_Table_Limit
+00004606  __TI_CINIT_Base         
+0000460e  __TI_CINIT_Limit        
+00004602  __TI_Handler_Table_Base 
+00004606  __TI_Handler_Table_Limit
 UNDEFED   __TI_INITARRAY_Base     
 UNDEFED   __TI_INITARRAY_Limit    
-000044ae  __TI_ISR_TRAP           
+000044c2  __TI_ISR_TRAP           
 0000ffd2  __TI_int41              
 0000ffd4  __TI_int42              
 0000ffd6  __TI_int43              
@@ -1081,26 +1135,80 @@ UNDEFED   __TI_INITARRAY_Limit
 ffffffff  __TI_pprof_out_hndl     
 ffffffff  __TI_prof_data_size     
 ffffffff  __TI_prof_data_start    
-00010218  __TI_zero_init          
+00010b6e  __TI_zero_init          
 ffffffff  __c_args__              
-00010254  __mspabi_mpyi_f5hw      
-00010000  _auto_init_hold_wdt     
+00010598  __mspabi_divf           
+00010b1a  __mspabi_divi           
+00010bc0  __mspabi_divu           
+000108a6  __mspabi_divul          
+00010714  __mspabi_fixfi          
+00010a86  __mspabi_fltif          
+00010b92  __mspabi_mpyi_f5hw      
+00010b1a  __mspabi_remi           
+00010bc0  __mspabi_remu           
+000108a6  __mspabi_remul          
+00010a46  __mspabi_slll_1         
+00010a22  __mspabi_slll_10        
+00010a1e  __mspabi_slll_11        
+00010a1a  __mspabi_slll_12        
+00010a16  __mspabi_slll_13        
+00010a12  __mspabi_slll_14        
+00010a0e  __mspabi_slll_15        
+00010a42  __mspabi_slll_2         
+00010a3e  __mspabi_slll_3         
+00010a3a  __mspabi_slll_4         
+00010a36  __mspabi_slll_5         
+00010a32  __mspabi_slll_6         
+00010a2e  __mspabi_slll_7         
+00010a2a  __mspabi_slll_8         
+00010a26  __mspabi_slll_9         
+00010628  _auto_init_hold_wdt     
 00004480  _c_int00_noargs_noexit  
 0000fffe  _reset_vector           
 00004360  _stack                  
-00010296  _system_post_cinit      
-00010292  _system_pre_init        
-0001028c  abort                   
-00010082  copy_in                 
-0001023c  main                    
-0001026c  memcpy                  
-0001018a  mpu_test_connection     
-00002406  rxByteCtr               
+00010c0e  _system_post_cinit      
+00010c0a  _system_pre_init        
+00010c04  abort                   
+00002406  accelXout               
+00002408  accelXout_H             
+0000240a  accelXout_L             
+0000240c  accelYout               
+0000240e  accelYout_H             
+00002410  accelYout_L             
+00002412  accelZout               
+00002414  accelZout_H             
+00002416  accelZout_L             
+0001077c  copy_in                 
+00010abc  delay                   
+00002418  gyroXout                
+0000241a  gyroXoutOffset          
+0000241c  gyroXout_H              
+0000241e  gyroXout_L              
+00002420  gyroYout                
+00002422  gyroYoutOffset          
+00002424  gyroYout_H              
+00002426  gyroYout_L              
+00002428  gyroZout                
+0000242a  gyroZoutOffset          
+0000242c  gyroZout_H              
+0000242e  gyroZout_L              
+000106aa  itoa                    
+000107e2  main                    
+00010bd6  memcpy                  
+0001025c  mpu_calibrate_gyro      
+000108fe  mpu_print               
+000104fa  mpu_read_accel          
+00010362  mpu_read_gyro_rate      
+00010000  mpu_setup               
+00010a4c  mpu_test_connection     
+00010948  reverse                 
+00002430  rxByteCtr               
 00002400  rxDest                  
-00002407  txAddress               
-00002408  txByteCtr               
-00002409  txData                  
-0000240a  uartBuff                
+00010bea  strlen                  
+00002431  txAddress               
+00002432  txByteCtr               
+00002433  txData                  
+00002434  uartBuff                
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -1858,21 +1966,43 @@ address   name
 000023ff  USBIEPSIZXY_7           
 00002400  rxDest                  
 00002404  Rx                      
-00002406  rxByteCtr               
-00002407  txAddress               
-00002408  txByteCtr               
-00002409  txData                  
-0000240a  uartBuff                
+00002406  accelXout               
+00002408  accelXout_H             
+0000240a  accelXout_L             
+0000240c  accelYout               
+0000240e  accelYout_H             
+00002410  accelYout_L             
+00002412  accelZout               
+00002414  accelZout_H             
+00002416  accelZout_L             
+00002418  gyroXout                
+0000241a  gyroXoutOffset          
+0000241c  gyroXout_H              
+0000241e  gyroXout_L              
+00002420  gyroYout                
+00002422  gyroYoutOffset          
+00002424  gyroYout_H              
+00002426  gyroYout_L              
+00002428  gyroZout                
+0000242a  gyroZoutOffset          
+0000242c  gyroZout_H              
+0000242e  gyroZout_L              
+00002430  rxByteCtr               
+00002431  txAddress               
+00002432  txByteCtr               
+00002433  txData                  
+00002434  uartBuff                
 00004360  _stack                  
 00004400  USCI_B0_ISR             
 00004400  __STACK_END             
 00004480  _c_int00_noargs_noexit  
-0000449a  USCI_A0_ISR             
-000044ae  __TI_ISR_TRAP           
-00004504  __TI_Handler_Table_Base 
-00004508  __TI_CINIT_Base         
-00004508  __TI_Handler_Table_Limit
-00004510  __TI_CINIT_Limit        
+0000449a  TIMER_B0                
+000044ae  USCI_A0_ISR             
+000044c2  __TI_ISR_TRAP           
+00004602  __TI_Handler_Table_Base 
+00004606  __TI_CINIT_Base         
+00004606  __TI_Handler_Table_Limit
+0000460e  __TI_CINIT_Limit        
 0000ffd2  __TI_int41              
 0000ffd4  __TI_int42              
 0000ffd6  __TI_int43              
@@ -1896,22 +2026,58 @@ address   name
 0000fffa  __TI_int61              
 0000fffc  __TI_int62              
 0000fffe  _reset_vector           
-00010000  _auto_init_hold_wdt     
-00010082  copy_in                 
-000100e8  I2C_setup               
-00010148  I2C_read                
-0001018a  mpu_test_connection     
-000101c4  I2C_write               
-000101f0  UART_print_status       
-00010218  __TI_zero_init          
-0001023c  main                    
-00010254  __mspabi_mpyi_f5hw      
-0001026c  memcpy                  
-00010280  UART_transmit_byte      
-0001028c  C$$EXIT                 
-0001028c  abort                   
-00010292  _system_pre_init        
-00010296  _system_post_cinit      
+00010000  mpu_setup               
+0001025c  mpu_calibrate_gyro      
+00010362  mpu_read_gyro_rate      
+00010456  UART_setup              
+000104fa  mpu_read_accel          
+00010598  __mspabi_divf           
+00010628  _auto_init_hold_wdt     
+000106aa  itoa                    
+00010714  __mspabi_fixfi          
+0001077c  copy_in                 
+000107e2  main                    
+00010846  I2C_setup               
+000108a6  __mspabi_divul          
+000108a6  __mspabi_remul          
+000108fe  mpu_print               
+00010948  reverse                 
+0001098e  I2C_read                
+000109d0  UART_print_value        
+00010a0e  __mspabi_slll_15        
+00010a12  __mspabi_slll_14        
+00010a16  __mspabi_slll_13        
+00010a1a  __mspabi_slll_12        
+00010a1e  __mspabi_slll_11        
+00010a22  __mspabi_slll_10        
+00010a26  __mspabi_slll_9         
+00010a2a  __mspabi_slll_8         
+00010a2e  __mspabi_slll_7         
+00010a32  __mspabi_slll_6         
+00010a36  __mspabi_slll_5         
+00010a3a  __mspabi_slll_4         
+00010a3e  __mspabi_slll_3         
+00010a42  __mspabi_slll_2         
+00010a46  __mspabi_slll_1         
+00010a4c  mpu_test_connection     
+00010a86  __mspabi_fltif          
+00010abc  delay                   
+00010aee  I2C_write               
+00010b1a  __mspabi_divi           
+00010b1a  __mspabi_remi           
+00010b46  UART_print_status       
+00010b6e  __TI_zero_init          
+00010b92  __mspabi_mpyi_f5hw      
+00010baa  UART_print              
+00010bc0  __mspabi_divu           
+00010bc0  __mspabi_remu           
+00010bd6  memcpy                  
+00010bea  strlen                  
+00010bf8  UART_transmit_byte      
+00010c04  C$$EXIT                 
+00010c04  abort                   
+00010c0a  _system_pre_init        
+00010c0e  _system_post_cinit      
 ffffffff  __TI_pprof_out_hndl     
 ffffffff  __TI_prof_data_size     
 ffffffff  __TI_prof_data_start    
@@ -1921,4 +2087,4 @@ UNDEFED   __TI_BINIT_Limit
 UNDEFED   __TI_INITARRAY_Base     
 UNDEFED   __TI_INITARRAY_Limit    
 
-[813 symbols]
+[871 symbols]

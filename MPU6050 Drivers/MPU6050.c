@@ -59,9 +59,9 @@ void mpu_test_connection(){
 	int address;
 	I2C_read(MPU6050_ADDRESS, MPU6050_RA_WHO_AM_I, &address, 1);
 	if(address == MPU6050_ADDRESS){
-		UART_print_status(SUCCESS, "MPU6500");
+		UART_print_status(SUCCESS, "MPU6500 Verified");
 	}else{
-		UART_print_status(FAIL, "MPU6500");
+		UART_print_status(FAIL, "MPU6500 Not verified");
 		while(1);
 	}
 }
@@ -161,7 +161,7 @@ void mpu_setup(void){
  */
 
 
-void mpu_calibrate_Gyro(){
+void mpu_calibrate_gyro(){
 
 	int gyroXOffsetSum = 0;
 	int gyroYOffsetSum = 0;
@@ -180,18 +180,17 @@ void mpu_calibrate_Gyro(){
 		gyroXOffsetSum += ((gyroXout_H << 8) |gyroXout_L);
 		gyroYOffsetSum += ((gyroYout_H << 8) |gyroYout_L);
 		gyroZOffsetSum += ((gyroZout_H << 8) |gyroZout_L);
-		//delay(1);
-		__delay_cycles(10500);
+		delay(1);
 
 	}
 	gyroXoutOffset = gyroXOffsetSum/1000;
 	gyroYoutOffset = gyroYOffsetSum/1000;
 	gyroZoutOffset = gyroZOffsetSum/1000;
-/*
-	UART_print_status("Calibration done, X offset: ", gyroXoutOffset);
-	UART_print_status("Calibration done, Y offset: ", gyroYoutOffset);
-	UART_print_status("Calibration done, Z offset: ", gyroZoutOffset);
-*/
+
+	UART_print_value("\n\rCalibration done, X offset: ", gyroXoutOffset);
+	UART_print_value("\n\rCalibration done, Y offset: ", gyroYoutOffset);
+	UART_print_value("\n\rCalibration done, Z offset: ", gyroZoutOffset);
+
 }
 /**********************************************************************************
  * Reads raw accelerometer values
@@ -242,22 +241,22 @@ void mpu_read_gyro_rate(){
 	I2C_read(MPU6050_ADDRESS, MPU6050_RA_GYRO_ZOUT_L, &gyroZout_L, 1);
 
 	gyroXout = ((gyroXout_H << 8) | gyroXout_L) - gyroXoutOffset;
-	gyroYout = ((gyroXout_H << 8) | gyroXout_L) - gyroYoutOffset;
-	gyroZout = ((gyroXout_H << 8) | gyroXout_L) - gyroZoutOffset;
+	gyroYout = ((gyroYout_H << 8) | gyroYout_L) - gyroYoutOffset;
+	gyroZout = ((gyroZout_H << 8) | gyroZout_L) - gyroZoutOffset;
 
 	gyroXout = (float)gyroXout/gyroXsensitivity;
 	gyroYout = (float)gyroYout/gyroYsensitivity;
 	gyroZout = (float)gyroZout/gyroZsensitivity;
 }
-/*
+
 void mpu_print(){
 
-	UART_serial_print("X accel: ", accelXout);
-	UART_serial_print("\nY accel: ", accelYout);
-	UART_serial_print("\nY accel: ", accelZout);
-	UART_serial_print("\nX gyro: ", gyroXout);
-	UART_serial_print("\nY gyro: ", gyroYout);
-	UART_serial_print("\nZ gyro: ", gyroZout);
+	UART_print_value("\fX accel: ", accelXout);
+	UART_print_value("\n\rY accel: ", accelYout);
+	UART_print_value("\n\rY accel: ", accelZout);
+	UART_print_value("\n\rX gyro: ", gyroXout);
+	UART_print_value("\n\rY gyro: ", gyroYout);
+	UART_print_value("\n\rZ gyro: ", gyroZout);
 
 }
-*/
+

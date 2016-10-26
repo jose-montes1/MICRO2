@@ -1,6 +1,6 @@
 #include <msp430F5529.h>
 #include "Serial_JMP.h"
-
+#include "General_JMP.h"
 /*
  * Serial_JMP.c
  *
@@ -118,7 +118,18 @@ void UART_print_status(unsigned char *string1,unsigned char *string2){
 	}
 }
 
-void UART_serial_print_value(){
+void UART_print_value(char *string, int value){
+	char buffer[16];
+	itoa(value, buffer);
+	unsigned char *intArr = (unsigned char *)buffer;
+	while(*string){
+		UART_transmit_byte(*string);
+		string++;
+	}
+	while(*intArr){
+			UART_transmit_byte(*intArr);
+			intArr++;
+		}
 }
 
 

@@ -8,8 +8,8 @@
 #ifndef SERIAL_JMP_H_
 #define SERIAL_JMP_H_
 
-#define SUCCESS "Process successful: "
-#define FAIL "Process failed: "
+#define SUCCESS "\n\rProcess successful: "
+#define FAIL "\n\rProcess failed: "
 
 
 void UART_setup(unsigned long baudRate);
@@ -17,6 +17,7 @@ void UART_transmit_byte(unsigned char byte);
 void UART_receive_byte(char *dest);
 void UART_print(char *string);
 void UART_print_status(unsigned char *string1,unsigned char *string2);
+void UART_print_value(char *string, int value);
 __interrupt void USCI_A0_ISR(void);
 
 void I2C_setup(unsigned long baudRate);
