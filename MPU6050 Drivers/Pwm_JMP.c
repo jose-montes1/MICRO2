@@ -12,7 +12,25 @@
  *
  */
 
+int main(void){
+	pwm_setup();
+	UART_setup(9600);
+	char command;
+	int theta = 0;
+	while(1){
+		UART_receive();
+		if(command == "a" ){
+			theta -= 10;
+		}
+		else if(command == "d"){
+			theta += 10;
+		}
+		pwm_write_angle(theta);
+	}
 
+
+
+}
 void pwm_setup(){
 	P1DIR |= BIT5;								// Set as ouput
 	P1SEL |= BIT5;								// Select timer module
@@ -27,14 +45,26 @@ void pwm_setup(){
 
 
 }
+void pwm_write_angle(int angle){
+	int microseconds;
+	if(speed < 90 & speed > -90){
+		microseconds = DEADBAND + (speed*RANGE)/90;
+		pwm_write_microseconds(microseconds);
+		UART_print_value("Angle: ", microseconds);
+
+	}else{
+		UART_print_status(FAIL, "Invalid ESC speed");
+	}
+}
 void pwm_write_speed(int speed){
 	int microseconds;
 	if(speed < 100 & speed > -100){
-		microseconds = DEADBAND + speed*RANGE;
+		microseconds = DEADBAND + (speed*RANGE)/100;
 		pwm_write_microseconds(microseconds);
+		UART_print_value("Period: ", microseconds);
 
 	}else{
-		UART_print("Wrong number");
+		UART_print_status(FAIL, "Invalid ESC speed");
 	}
 }
 
