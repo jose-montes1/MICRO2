@@ -19,6 +19,8 @@ UsedLibrary="C:/EAGLE-7.5.0/lbr/74xx-little-us.lbr"
 UsedLibrary="C:/EAGLE-7.5.0/lbr/74xx-us.lbr"
 UsedLibrary="C:/EAGLE-7.5.0/lbr/751xx.lbr"
 UsedLibrary="C:/EAGLE-7.5.0/lbr/IQD-Frequency-Products.lbr"
+UsedLibrary="C:/EAGLE-7.5.0/lbr/TI_MSP430_v16.lbr"
+UsedLibrary="C:/EAGLE-7.5.0/lbr/Wuerth_Elektronik_Power_Elements_rev15c.lbr"
 UsedLibrary="C:/EAGLE-7.5.0/lbr/advanced-test-technologies.lbr"
 UsedLibrary="C:/EAGLE-7.5.0/lbr/agilent-technologies.lbr"
 UsedLibrary="C:/EAGLE-7.5.0/lbr/allegro.lbr"
@@ -347,22 +349,14 @@ UsedLibrary="C:/EAGLE-7.5.0/lbr/xilinx-xcv.lbr"
 UsedLibrary="C:/EAGLE-7.5.0/lbr/zetex.lbr"
 UsedLibrary="C:/EAGLE-7.5.0/lbr/zilog.lbr"
 UsedLibrary="C:/EAGLE-7.5.0/lbr/sparkfun/SparkFun-Connectors.lbr"
-UsedLibrary="C:/EAGLE-7.5.0/lbr/Wuerth_Elektronik_Power_Elements_rev15c.lbr"
-UsedLibrary="C:/EAGLE-7.5.0/lbr/TI_MSP430_v16.lbr"
 
 [Win_1]
-Type="Control Panel"
-Loc="1272 0 2549 1350"
-State=0
-Number=0
-
-[Win_2]
 Type="Schematic Editor"
-Loc="1272 0 2549 1350"
-State=2
-Number=1
-File="Notification area.sch"
-View="0.111788 175.818 185.024 294.69"
+Loc="-9 -38 590 361"
+State=0
+Number=2
+File="Main Board -v1.1.sch"
+View="-72.6602 26.9078 377.252 318.324"
 WireWidths=" 0 0.3048 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0.4064 0.1524"
 PadDiameters=" 0.254 0.3048 0.4064 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0"
 PadDrills=" 0.5 0.6 0.7 0.9 1 1.1 1.2 1.3 1.4 1.5 1.6 2 2.2 2.8 3.2 0.8"
@@ -400,8 +394,14 @@ SwapLevel=0
 ArcDirection=0
 AddLevel=2
 PadsSameType=0
-Layer=94
+Layer=91
 Sheet="1"
+
+[Win_2]
+Type="Control Panel"
+Loc="1272 0 2549 1350"
+State=2
+Number=0
 
 [Desktop]
 Screen="2560 1440"
