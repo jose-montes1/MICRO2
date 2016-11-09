@@ -55,7 +55,7 @@ void UART_setup(unsigned long baudRate){
 		P4DIR |= BIT7;							// Set on board LED on
 		while(1){								// Error trap infinite while loop
 			P4OUT ^= BIT7;						// Toggle led
-			__delay_cycles(100000);				// Delay
+			delay(500);
 		}
 	}
 	UCA0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
@@ -117,7 +117,13 @@ void UART_print_status(unsigned char *string1,unsigned char *string2){
 		string2++;							// Load next byte
 	}
 }
-
+/*\**********************************************************************************************************
+ *Function Description
+ * 	Prints out a stream of data from two data collections
+ *Parameters
+ *  String1 - Character array to be printed
+ *  Value - Integer number to be display
+ *\**********************************************************************************************************/
 void UART_print_value(char *string, int value){
 	char buffer[16];
 	itoa(value, buffer);
@@ -131,7 +137,6 @@ void UART_print_value(char *string, int value){
 			intArr++;
 		}
 }
-
 
 //UART Interrupt Vector
 #pragma vector=USCI_A0_VECTOR
@@ -267,4 +272,55 @@ __interrupt void USCI_B0_ISR(void){
 		default: break;
 	}
   }
+}
+
+/*\***********************************************************************************************************
+ *Function Description
+ * 	Sets up a watcher timer that interrupts after 
+ *Parameter description
+ *  Miliseconds - the miliseconds the timeout will wait before stopping
+ *
+ *\************************************************************************************************************/
+
+
+void BT_timeout_setup(int miliseconds){
+	unsigned long operations = (32768*miliseconds)/1000;
+	TA1CTL |= TBCLR; 				// Clear Timer content
+	TA1CCR0 = operations;			// Set the timer period
+	TA1CTL |= TBSSEL_1;				// Use aclk
+	TA1CCTL0 |= CCIE;				// Enable Interrupt
+}
+
+/*\***********************************************************************************************************
+ *Function Description
+ * 	Starts the waiting timer
+ *Parameter description
+ *  
+ *
+ *\************************************************************************************************************/
+
+void BT_start_timeout(){
+	TA1R = 0;						// Reset Counter
+	TA1CTL |= MC_1;					// Use up mode
+}
+
+/*\***********************************************************************************************************
+ *Function Description
+ * 	Stops the waiting timer
+ *Parameter description
+ *  
+ *
+ *\************************************************************************************************************/
+
+void BT_stop_timeout(){
+	TA1CTL &= ~MC_1;				//Stop timer
+}
+
+
+#pragma vector=TIMER1_A0_VECTOR
+__interrupt void TIMER1_A0_ISR(void){
+	TA1CTL &= ~MC_1;				//Stop timer
+	TA1CTL |= MC_0;					//Make sure its stopped
+	received_command = 0;
+	LPM0_EXIT;
 }
