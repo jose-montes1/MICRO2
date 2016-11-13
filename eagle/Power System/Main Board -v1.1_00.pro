@@ -1,25 +1,25 @@
 EAGLE AutoRouter Statistics:
 
-Job           : //fs.ece.uprm.edu/students/jose.montes1/My Documents/MICRO2/eagle/Power System/Main Board -v1.1.brd
+Job           : C:/Users/Rathk/Documents/Workspace/MICRO2/eagle/Power System/Main Board -v1.1.brd
 
-Start at      : 18:33:32 (11/6/2016)
-End at        : 20:17:16 (11/11/2016)
-Elapsed time  : 
+Start at      : 14:25:06 (11/12/2016)
+End at        : 20:00:00 (12/31/1969)
+Elapsed time  : 00:00:00
 
 Signals       :    26   RoutingGrid: 9 mil  Layers: 2
-Connections   :    45   predefined:  0 ( 0 Vias )
+Connections   :    46   predefined:  12 ( 0 Vias )
 
-Router memory :   1260240
+Router memory :   1256616
 
-Passname          : TopRouter     Route Optimize1 Optimize2 Optimize3 Optimize4
+Passname          : TopRouter
 
-Time per pass     :            
-Number of Ripups  :         0         0         0         0         0         0
-max. Level        :         0         0         0         0         0         0
-max. Total        :         0         0         0         0         0         0
+Time per pass     :  00:00:00
+Number of Ripups  :         0
+max. Level        :         0
+max. Total        :         0
 
-Routed            :        32        45        45        45        45        45
-Vias              :         0         3         7         3         1         0
-Resolution        :    71.1 %   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %
+Routed            :         0
+Vias              :         0
+Resolution        :    26.1 %
 
 Final             : 

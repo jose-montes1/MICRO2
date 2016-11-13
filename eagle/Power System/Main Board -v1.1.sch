@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.3.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -4719,9 +4719,9 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="SV5" library="con-lstb" deviceset="MA04-1" device="" value="HC-06"/>
-<part name="SV1" library="con-lstb" deviceset="MA04-1" device="" value="JSN-SR04 FRONT"/>
-<part name="SV2" library="con-lstb" deviceset="MA04-1" device="" value="JSN-SR04 LEFT"/>
-<part name="SV3" library="con-lstb" deviceset="MA04-1" device="" value="JSN-SR04 RIGHT"/>
+<part name="SV1" library="con-lstb" deviceset="MA04-1" device="" value="JSN-SR04 "/>
+<part name="SV2" library="con-lstb" deviceset="MA04-1" device="" value="JSN-SR04 "/>
+<part name="SV3" library="con-lstb" deviceset="MA04-1" device="" value="JSN-SR04 "/>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
 <part name="FRAME2" library="frames" deviceset="FRAME_B_L" device=""/>
 <part name="SV12" library="con-lsta" deviceset="FE12-1" device="" value="To Notification panel"/>
@@ -4747,7 +4747,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
-<part name="SV14" library="con-lstb" deviceset="MA04-1" device="" value="JSN-SR04 BACK"/>
+<part name="SV14" library="con-lstb" deviceset="MA04-1" device="" value="JSN-SR04 "/>
 </parts>
 <sheets>
 <sheet>
@@ -5224,23 +5224,23 @@ M2P2</text>
 </net>
 <net name="N$27" class="0">
 <segment>
-<pinref part="SV12" gate="G$1" pin="6"/>
-<wire x1="132.08" y1="254" x2="132.08" y2="223.52" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="223.52" x2="12.7" y2="223.52" width="0.1524" layer="91"/>
+<wire x1="134.62" y1="223.52" x2="12.7" y2="223.52" width="0.1524" layer="91"/>
 <wire x1="12.7" y1="223.52" x2="12.7" y2="160.02" width="0.1524" layer="91"/>
 <pinref part="SV8" gate="G$1" pin="5"/>
 <wire x1="12.7" y1="160.02" x2="33.02" y2="160.02" width="0.1524" layer="91"/>
+<pinref part="SV12" gate="G$1" pin="7"/>
+<wire x1="134.62" y1="223.52" x2="134.62" y2="254" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$28" class="0">
 <segment>
-<pinref part="SV12" gate="G$1" pin="7"/>
-<wire x1="134.62" y1="218.44" x2="134.62" y2="254" width="0.1524" layer="91"/>
-<wire x1="134.62" y1="218.44" x2="18.034" y2="218.44" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="218.44" x2="18.034" y2="218.44" width="0.1524" layer="91"/>
 <wire x1="18.034" y1="218.44" x2="18.034" y2="163.068" width="0.1524" layer="91"/>
 <pinref part="SV8" gate="G$1" pin="7"/>
 <wire x1="18.034" y1="163.068" x2="33.02" y2="163.068" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="163.068" x2="33.02" y2="162.56" width="0.1524" layer="91"/>
+<pinref part="SV12" gate="G$1" pin="6"/>
+<wire x1="132.08" y1="218.44" x2="132.08" y2="254" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$30" class="0">

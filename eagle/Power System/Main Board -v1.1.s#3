@@ -5261,6 +5261,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="SV9" library="con-lsta" deviceset="FE20-1" device=""/>
+<part name="SV10" library="con-lsta" deviceset="FE12-1" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5373,7 +5374,8 @@ M2P2</text>
 <instance part="+3V1" gate="G$1" x="-12.7" y="177.8" rot="R90"/>
 <instance part="GND9" gate="1" x="58.42" y="177.8" rot="R90"/>
 <instance part="GND11" gate="1" x="27.94" y="193.04" rot="R180"/>
-<instance part="SV9" gate="G$1" x="129.54" y="157.48"/>
+<instance part="SV9" gate="G$1" x="160.02" y="170.18"/>
+<instance part="SV10" gate="G$1" x="137.16" y="172.72"/>
 </instances>
 <busses>
 </busses>
