@@ -351,12 +351,18 @@ UsedLibrary="C:/EAGLE-7.5.0/lbr/zilog.lbr"
 UsedLibrary="C:/EAGLE-7.5.0/lbr/sparkfun/SparkFun-Connectors.lbr"
 
 [Win_1]
+Type="Control Panel"
+Loc="1272 0 2549 1350"
+State=2
+Number=0
+
+[Win_2]
 Type="Schematic Editor"
-Loc="-9 -38 590 361"
-State=0
+Loc="-8 0 1269 1350"
+State=2
 Number=2
-File="Main Board -v1.1.sch"
-View="-72.6602 26.9078 377.252 318.324"
+File="Notification area.sch"
+View="52.4655 236.809 157.101 304.583"
 WireWidths=" 0 0.3048 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0.4064 0.1524"
 PadDiameters=" 0.254 0.3048 0.4064 0.6096 0.8128 1.016 1.27 1.4224 1.6764 1.778 1.9304 2.1844 2.54 3.81 6.4516 0"
 PadDrills=" 0.5 0.6 0.7 0.9 1 1.1 1.2 1.3 1.4 1.5 1.6 2 2.2 2.8 3.2 0.8"
@@ -395,13 +401,8 @@ ArcDirection=0
 AddLevel=2
 PadsSameType=0
 Layer=91
+Views=" 1: 52.4655 236.809 157.101 304.583"
 Sheet="1"
-
-[Win_2]
-Type="Control Panel"
-Loc="1272 0 2549 1350"
-State=2
-Number=0
 
 [Desktop]
 Screen="2560 1440"
