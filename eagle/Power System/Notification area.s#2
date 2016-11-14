@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.3.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -10906,9 +10906,9 @@ ICOM 4127-067</text>
 <wire x1="116.84" y1="220.98" x2="116.84" y2="223.52" width="0.1524" layer="91"/>
 <wire x1="116.84" y1="223.52" x2="68.58" y2="223.52" width="0.1524" layer="91"/>
 <wire x1="68.58" y1="223.52" x2="68.58" y2="238.76" width="0.1524" layer="91"/>
-<pinref part="SV1" gate="G$1" pin="7"/>
-<wire x1="68.58" y1="238.76" x2="60.96" y2="238.76" width="0.1524" layer="91"/>
-<wire x1="60.96" y1="238.76" x2="60.96" y2="271.78" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="238.76" x2="58.42" y2="238.76" width="0.1524" layer="91"/>
+<pinref part="SV1" gate="G$1" pin="6"/>
+<wire x1="58.42" y1="238.76" x2="58.42" y2="271.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$9" class="0">
@@ -10950,14 +10950,10 @@ ICOM 4127-067</text>
 </net>
 <net name="N$13" class="0">
 <segment>
-<pinref part="R10" gate="G$1" pin="1"/>
 <pinref part="R9" gate="G$1" pin="1"/>
-<wire x1="127" y1="251.46" x2="132.08" y2="251.46" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="251.46" x2="132.08" y2="256.54" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="251.46" x2="139.7" y2="251.46" width="0.1524" layer="91"/>
-<junction x="132.08" y="251.46"/>
+<wire x1="132.08" y1="254" x2="132.08" y2="256.54" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="254" x2="139.7" y2="254" width="0.1524" layer="91"/>
 <pinref part="SV2" gate="G$1" pin="1"/>
-<wire x1="139.7" y1="251.46" x2="139.7" y2="254" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$19" class="0">
@@ -11102,9 +11098,9 @@ ICOM 4127-067</text>
 <wire x1="99.06" y1="193.04" x2="99.06" y2="220.98" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="220.98" x2="66.04" y2="220.98" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="220.98" x2="66.04" y2="236.22" width="0.1524" layer="91"/>
-<pinref part="SV1" gate="G$1" pin="6"/>
-<wire x1="66.04" y1="236.22" x2="58.42" y2="236.22" width="0.1524" layer="91"/>
-<wire x1="58.42" y1="236.22" x2="58.42" y2="271.78" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="236.22" x2="60.96" y2="236.22" width="0.1524" layer="91"/>
+<pinref part="SV1" gate="G$1" pin="7"/>
+<wire x1="60.96" y1="236.22" x2="60.96" y2="271.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$16" class="0">
@@ -11238,6 +11234,14 @@ ICOM 4127-067</text>
 <net name="N$15" class="0">
 <segment>
 <wire x1="132.08" y1="243.84" x2="132.08" y2="241.3" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$34" class="0">
+<segment>
+<pinref part="R10" gate="G$1" pin="1"/>
+<pinref part="SV2" gate="G$1" pin="2"/>
+<wire x1="127" y1="251.46" x2="142.24" y2="251.46" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="251.46" x2="142.24" y2="254" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

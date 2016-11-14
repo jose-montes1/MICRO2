@@ -178,7 +178,7 @@ INT
 NCS
 
 FSYNC</text>
-<text x="52.578" y="10.668" size="0.889" layer="25" rot="R90">M2P2
+<text x="52.578" y="8.9916" size="0.889" layer="25" rot="R90">M2P2
 
 M2P2
 
@@ -10789,11 +10789,13 @@ design rules under a new name.</description>
 <attribute name="OC_FARNELL" value="unknown" x="90.678" y="74.676" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="" x="90.678" y="74.676" size="1.778" layer="27" display="off"/>
 </element>
-<element name="SV6" library="con-lsta" package="FE05-1" value="Motor communication\" x="46.99" y="7.239">
+<element name="SV6" library="con-lsta" package="FE05-1" value="Motor communication\" x="46.99" y="7.239" smashed="yes">
 <attribute name="MPN" value="" x="46.99" y="7.239" size="1.778" layer="27" display="off"/>
 <attribute name="OC_NEWARK" value="unknown" x="46.99" y="7.239" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="46.99" y="7.239" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="" x="46.99" y="7.239" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="36.9824" y="8.8392" size="1.27" layer="25" ratio="10"/>
+<attribute name="VALUE" x="55.372" y="6.5024" size="1.27" layer="27" ratio="10"/>
 </element>
 <element name="SV7" library="con-lsta" package="FE10-2" value="MSP430 - LEFT" x="9.017" y="66.421" rot="R90">
 <attribute name="MPN" value="" x="9.017" y="66.421" size="1.778" layer="27" rot="R90" display="off"/>

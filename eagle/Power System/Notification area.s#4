@@ -10340,7 +10340,7 @@ W = angled&lt;p&gt;
 <packages>
 <package name="F/DB18">
 <description>&lt;b&gt;BUZZER&lt;/b&gt;</description>
-<wire x1="-19.414" y1="3.2822" x2="-19.414" y2="-3.283" width="0.1524" layer="21" curve="107.750176"/>
+<wire x1="-19.414" y1="4.5522" x2="-20.684" y2="-3.283" width="0.1524" layer="21" curve="107.750176"/>
 <wire x1="1.016" y1="-4.4577" x2="2.4336" y2="-3.8705" width="0.1524" layer="21" curve="19.320241"/>
 <wire x1="1.016" y1="4.4577" x2="2.4336" y2="3.8705" width="0.1524" layer="21" curve="-19.320241"/>
 <wire x1="1.016" y1="-8.3202" x2="5.1648" y2="-6.6017" width="0.1524" layer="21" curve="31.07551"/>
@@ -10350,7 +10350,7 @@ W = angled&lt;p&gt;
 <wire x1="-4.4577" y1="1.016" x2="-3.8705" y2="2.4336" width="0.1524" layer="21" curve="-19.320241"/>
 <wire x1="-8.3202" y1="1.016" x2="-6.6017" y2="5.1648" width="0.1524" layer="21" curve="-31.07551"/>
 <wire x1="-7.0391" y1="1.016" x2="-6.9469" y2="1.5235" width="0.1524" layer="51" curve="-4.156279"/>
-<wire x1="-8.311" y1="-11.387" x2="-19.414" y2="-3.283" width="0.1524" layer="21"/>
+<wire x1="-8.311" y1="-11.387" x2="-20.684" y2="-3.283" width="0.1524" layer="21"/>
 <wire x1="-10.875" y1="1.016" x2="-8.121" y2="1.016" width="0.1524" layer="21"/>
 <wire x1="-10.875" y1="-1.016" x2="-8.121" y2="-1.016" width="0.1524" layer="21"/>
 <wire x1="1.016" y1="-10.875" x2="1.016" y2="-3.142" width="0.1524" layer="21"/>
@@ -10368,7 +10368,7 @@ W = angled&lt;p&gt;
 <wire x1="-7.0391" y1="-1.016" x2="-6.9469" y2="-1.5235" width="0.1524" layer="51" curve="4.156279"/>
 <wire x1="-8.121" y1="-1.016" x2="-5.849" y2="-1.016" width="0.1524" layer="51"/>
 <wire x1="-2.5426" y1="-3.7998" x2="-1.016" y2="-4.4577" width="0.1524" layer="21" curve="20.948515"/>
-<wire x1="-8.311" y1="11.387" x2="-19.414" y2="3.283" width="0.1524" layer="21"/>
+<wire x1="-8.311" y1="11.387" x2="-19.414" y2="4.553" width="0.1524" layer="21"/>
 <wire x1="-6.971" y1="8.408" x2="-1.503" y2="2.94" width="0.1524" layer="21"/>
 <wire x1="-1.016" y1="3.142" x2="-1.016" y2="10.875" width="0.1524" layer="21"/>
 <wire x1="1.016" y1="3.142" x2="1.016" y2="10.875" width="0.1524" layer="21"/>
@@ -10377,11 +10377,11 @@ W = angled&lt;p&gt;
 <wire x1="-4.2589" y1="5.6958" x2="-1.016" y2="7.0391" width="0.1524" layer="21" curve="-28.573085"/>
 <wire x1="-6.9469" y1="1.5235" x2="-5.6958" y2="4.2589" width="0.1524" layer="21" curve="-24.416898"/>
 <wire x1="-2.4336" y1="3.8705" x2="-1.016" y2="4.4577" width="0.1524" layer="21" curve="-19.320241"/>
-<wire x1="19.414" y1="-3.283" x2="19.414" y2="3.2822" width="0.1524" layer="21" curve="107.750176"/>
+<wire x1="20.684" y1="-3.283" x2="20.684" y2="3.2822" width="0.1524" layer="21" curve="107.750176"/>
 <wire x1="3.7998" y1="2.5426" x2="4.4577" y2="1.016" width="0.1524" layer="21" curve="-20.948515"/>
 <wire x1="6.5222" y1="5.2649" x2="8.3202" y2="1.016" width="0.1524" layer="21" curve="-31.949416"/>
 <wire x1="6.9469" y1="1.5235" x2="7.0391" y2="1.016" width="0.1524" layer="51" curve="-4.156279"/>
-<wire x1="8.311" y1="-11.387" x2="19.414" y2="-3.283" width="0.1524" layer="21"/>
+<wire x1="8.311" y1="-11.387" x2="20.684" y2="-3.283" width="0.1524" layer="21"/>
 <wire x1="2.94" y1="-1.503" x2="8.408" y2="-6.971" width="0.1524" layer="21"/>
 <wire x1="1.503" y1="-2.94" x2="6.971" y2="-8.408" width="0.1524" layer="21"/>
 <wire x1="6.6017" y1="-5.1648" x2="8.3202" y2="-1.016" width="0.1524" layer="21" curve="31.07551"/>
@@ -10394,21 +10394,21 @@ W = angled&lt;p&gt;
 <wire x1="8.121" y1="1.016" x2="10.875" y2="1.016" width="0.1524" layer="21"/>
 <wire x1="8.121" y1="-1.016" x2="10.875" y2="-1.016" width="0.1524" layer="21"/>
 <wire x1="6.9469" y1="-1.5235" x2="7.0391" y2="-1.016" width="0.1524" layer="51" curve="4.156279"/>
-<wire x1="8.311" y1="11.387" x2="19.414" y2="3.283" width="0.1524" layer="21"/>
+<wire x1="8.311" y1="11.387" x2="20.684" y2="3.283" width="0.1524" layer="21"/>
 <wire x1="1.503" y1="2.94" x2="6.971" y2="8.408" width="0.1524" layer="21"/>
 <wire x1="2.877" y1="1.62" x2="8.326" y2="7.069" width="0.1524" layer="21"/>
 <wire x1="5.6181" y1="4.3609" x2="6.9469" y2="1.5235" width="0.1524" layer="21" curve="-25.449943"/>
 <circle x="0" y="0" radius="14.097" width="0.1524" layer="21"/>
 <circle x="0" y="0" radius="3.302" width="0.1524" layer="21"/>
 <circle x="0" y="0" radius="10.922" width="0.1524" layer="21"/>
-<circle x="-17.018" y="0" radius="1.778" width="0.1524" layer="21"/>
-<circle x="17.018" y="0" radius="1.778" width="0.1524" layer="21"/>
-<pad name="-" x="-7.0104" y="0" drill="1.016" diameter="2.54" shape="octagon"/>
-<pad name="+" x="7.0104" y="0" drill="1.016" diameter="2.54" shape="octagon"/>
+<circle x="-19.558" y="0" radius="1.778" width="0.1524" layer="21"/>
+<circle x="19.558" y="0" radius="1.778" width="0.1524" layer="21"/>
+<pad name="-" x="-10.8204" y="-11.43" drill="1.016" diameter="2.54" shape="octagon"/>
+<pad name="+" x="-6.9596" y="-13.97" drill="1.016" diameter="2.54" shape="octagon"/>
 <text x="8.89" y="11.43" size="1.778" layer="25" ratio="10">&gt;NAME</text>
 <text x="10.16" y="-12.065" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
-<hole x="17.018" y="0" drill="3.6068"/>
-<hole x="-17.018" y="0" drill="3.6068"/>
+<hole x="19.558" y="0" drill="3.6068"/>
+<hole x="-19.558" y="0" drill="3.6068"/>
 </package>
 </packages>
 <symbols>
@@ -10607,7 +10607,7 @@ ICOM 4127-067</text>
 <text x="160.02" y="309.88" size="1.778" layer="94">Battery Monitor</text>
 <text x="55.88" y="177.8" size="1.778" layer="92">Bluetooth - Blue</text>
 <text x="78.74" y="177.8" size="1.778" layer="92">Battery Ok - Green</text>
-<text x="104.14" y="177.8" size="1.778" layer="92">Battery Empty - Red</text>
+<text x="101.6" y="177.8" size="1.778" layer="92">Autonomous Mode - Red</text>
 <text x="129.54" y="177.8" size="1.778" layer="92">System Ok - Green</text>
 </plain>
 <instances>
