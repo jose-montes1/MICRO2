@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="7.3.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -5253,6 +5253,18 @@ M2P2</text>
 <wire x1="10.16" y1="134.62" x2="10.16" y2="157.48" width="0.1524" layer="91"/>
 <pinref part="SV7" gate="G$1" pin="4"/>
 <wire x1="10.16" y1="157.48" x2="5.08" y2="157.48" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="SV12" gate="G$1" pin="12"/>
+<wire x1="147.32" y1="254" x2="147.32" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="200.66" x2="27.94" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="200.66" x2="27.94" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="170.18" x2="10.16" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="10.16" y1="170.18" x2="10.16" y2="167.64" width="0.1524" layer="91"/>
+<pinref part="SV7" gate="G$1" pin="12"/>
+<wire x1="10.16" y1="167.64" x2="5.08" y2="167.64" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

@@ -4859,7 +4859,7 @@ M2P2</text>
 <instance part="SV8" gate="G$1" x="40.64" y="165.1"/>
 <instance part="+3V1" gate="G$1" x="-12.7" y="177.8" rot="R90"/>
 <instance part="GND9" gate="1" x="58.42" y="177.8" rot="R90"/>
-<instance part="GND11" gate="1" x="27.94" y="193.04" rot="R180"/>
+<instance part="GND11" gate="1" x="22.86" y="182.88" rot="R180"/>
 <instance part="SV14" gate="1" x="180.34" y="218.44"/>
 </instances>
 <busses>
@@ -4929,7 +4929,7 @@ M2P2</text>
 <segment>
 <pinref part="SV7" gate="G$1" pin="18"/>
 <pinref part="GND11" gate="1" pin="GND"/>
-<wire x1="27.94" y1="190.5" x2="5.08" y2="175.26" width="0.1524" layer="91"/>
+<wire x1="22.86" y1="180.34" x2="5.08" y2="175.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+3V3" class="0">

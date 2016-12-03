@@ -4,7 +4,7 @@
 
 SHELL = cmd.exe
 
-CG_TOOL_ROOT := C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3
+CG_TOOL_ROOT := C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_16.6.0.STS
 
 ORDERED_OBJS += \
 "./simple_apps/msp430/mllite_test.obj" \
@@ -42,12 +42,13 @@ ORDERED_OBJS += \
 "./core/driver/msp430/F5xx_F6xx_Core_Lib/HAL_UCS.obj" \
 "./core/driver/eMPL/inv_mpu.obj" \
 "./core/driver/eMPL/inv_mpu_dmp_motion_driver.obj" \
-"../lnk_msp430f5528.cmd" \
+"../lnk_msp430f5529.cmd" \
 "../core/mpl/libmplmpu.lib" \
 "../core/driver/msp430/msp430USB.cmd" \
 $(GEN_CMDS__FLAG) \
 -l"\\fs.ece.uprm.edu\students\jose.montes1\My Documents\MICRO2\eMD-6.0\core\mpl\libmplmpu.lib" \
 -l"libc.a" \
+-l"libmath.a" \
 
 -include ../makefile.init
 
@@ -182,6 +183,12 @@ eMD-6.0.out \
 EXE_OUTPUTS__QUOTED += \
 "eMD-6.0.out" \
 
+BIN_OUTPUTS += \
+eMD-6.0.hex \
+
+BIN_OUTPUTS__QUOTED += \
+"eMD-6.0.hex" \
+
 
 # All Target
 all: eMD-6.0.out
@@ -190,13 +197,19 @@ all: eMD-6.0.out
 eMD-6.0.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MSP430 Linker'
-	"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/bin/cl430" -vmspx --abi=coffabi --code_model=large --data_model=restricted --near_data=globals -O0 --opt_for_speed=5 -g --gcc --define=__MSP430F5528__ --define=USE_DMP --define=MPL_LOG_NDEBUG=1 --define=CONFIG_INTERFACE_USB --define=MPU9250 --define=I2C_B0 --define=EMPL --define=EMPL_TARGET_MSP430 --diag_warning=225 --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --printf_support=full -z --stack_size=1024 -m"eMD-6.0.map" --heap_size=1024 --use_hw_mpy=F5 -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"//fs.ece.uprm.edu/students/jose.montes1/My Documents/MICRO2/eMD-6.0/core/mpl" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/include" --reread_libs --warn_sections --xml_link_info="eMD-6.0_linkInfo.xml" --rom_model -o "eMD-6.0.out" $(ORDERED_OBJS)
+	"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_16.6.0.STS/bin/cl430" -vmspx --code_model=large --data_model=restricted --near_data=globals -O0 --opt_for_speed=5 --use_hw_mpy=F5 --define=USE_DMP --define=MPL_LOG_NDEBUG=1 --define=CONFIG_INTERFACE_USB --define=MPU9250 --define=I2C_B0 --define=EMPL --define=EMPL_TARGET_MSP430 --define=__MSP430F5529__ -g --gcc --printf_support=full --diag_warning=225 --display_error_number --abi=coffabi --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 -z -m"eMD-6.0.map" --heap_size=1024 --stack_size=1024 --cinit_hold_wdt=on -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"//fs.ece.uprm.edu/students/jose.montes1/My Documents/MICRO2/eMD-6.0/core/mpl" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_16.6.0.STS/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_16.6.0.STS/include" -i"C:/ti/ccsv6/ccs_base/msp430/lib/5xx_6xx_FRxx" --reread_libs --warn_sections --xml_link_info="eMD-6.0_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "eMD-6.0.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
+	@echo ' '
+
+eMD-6.0.hex: $(EXE_OUTPUTS)
+	@echo 'Invoking: MSP430 Hex Utility'
+	"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_16.6.0.STS/bin/hex430" --memwidth=8 --romwidth=8 -o "eMD-6.0.hex" $(EXE_OUTPUTS__QUOTED)
+	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(EXE_OUTPUTS__QUOTED)
+	-$(RM) $(EXE_OUTPUTS__QUOTED)$(BIN_OUTPUTS__QUOTED)
 	-$(RM) "simple_apps\msp430\mllite_test.pp" "core\mllite\data_builder.pp" "core\mllite\hal_outputs.pp" "core\mllite\message_layer.pp" "core\mllite\ml_math_func.pp" "core\mllite\mlmath.pp" "core\mllite\mpl.pp" "core\mllite\results_holder.pp" "core\mllite\start_manager.pp" "core\mllite\storage_manager.pp" "core\eMPL-hal\eMPL_outputs.pp" "core\driver\msp430\msp430_clock.pp" "core\driver\msp430\msp430_i2c.pp" "core\driver\msp430\msp430_interrupt.pp" "core\driver\msp430\USB_eMPL\UsbIsr.pp" "core\driver\msp430\USB_eMPL\descriptors.pp" "core\driver\msp430\USB_eMPL\log_msp430.pp" "core\driver\msp430\USB_eMPL\usbConstructs.pp" "core\driver\msp430\USB_eMPL\usbEventHandling.pp" "core\driver\msp430\USB_API\USB_PHDC_API\UsbPHDC.pp" "core\driver\msp430\USB_API\USB_MSC_API\UsbMscReq.pp" "core\driver\msp430\USB_API\USB_MSC_API\UsbMscScsi.pp" "core\driver\msp430\USB_API\USB_MSC_API\UsbMscStateMachine.pp" "core\driver\msp430\USB_API\USB_HID_API\UsbHid.pp" "core\driver\msp430\USB_API\USB_HID_API\UsbHidReq.pp" "core\driver\msp430\USB_API\USB_Common\dma.pp" 
 	-$(RM) "core\driver\msp430\USB_API\USB_Common\usb.pp" "core\driver\msp430\USB_API\USB_CDC_API\UsbCdc.pp" "core\driver\msp430\F5xx_F6xx_Core_Lib\HAL_FLASH.pp" "core\driver\msp430\F5xx_F6xx_Core_Lib\HAL_PMAP.pp" "core\driver\msp430\F5xx_F6xx_Core_Lib\HAL_PMM.pp" "core\driver\msp430\F5xx_F6xx_Core_Lib\HAL_TLV.pp" "core\driver\msp430\F5xx_F6xx_Core_Lib\HAL_UCS.pp" "core\driver\eMPL\inv_mpu.pp" "core\driver\eMPL\inv_mpu_dmp_motion_driver.pp" 
 	-$(RM) "simple_apps\msp430\mllite_test.obj" "core\mllite\data_builder.obj" "core\mllite\hal_outputs.obj" "core\mllite\message_layer.obj" "core\mllite\ml_math_func.obj" "core\mllite\mlmath.obj" "core\mllite\mpl.obj" "core\mllite\results_holder.obj" "core\mllite\start_manager.obj" "core\mllite\storage_manager.obj" "core\eMPL-hal\eMPL_outputs.obj" "core\driver\msp430\msp430_clock.obj" "core\driver\msp430\msp430_i2c.obj" "core\driver\msp430\msp430_interrupt.obj" "core\driver\msp430\USB_eMPL\UsbIsr.obj" "core\driver\msp430\USB_eMPL\descriptors.obj" "core\driver\msp430\USB_eMPL\log_msp430.obj" "core\driver\msp430\USB_eMPL\usbConstructs.obj" "core\driver\msp430\USB_eMPL\usbEventHandling.obj" "core\driver\msp430\USB_API\USB_PHDC_API\UsbPHDC.obj" "core\driver\msp430\USB_API\USB_MSC_API\UsbMscReq.obj" "core\driver\msp430\USB_API\USB_MSC_API\UsbMscScsi.obj" "core\driver\msp430\USB_API\USB_MSC_API\UsbMscStateMachine.obj" "core\driver\msp430\USB_API\USB_HID_API\UsbHid.obj" "core\driver\msp430\USB_API\USB_HID_API\UsbHidReq.obj" 

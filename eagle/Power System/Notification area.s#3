@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="7.3.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -10541,6 +10541,10 @@ W = angled&lt;p&gt;
 <part name="P+6" library="supply1" deviceset="V+" device="" value="9.6V"/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="SG1" library="buzzer" deviceset="F/DB18" device=""/>
+<part name="R21" library="rcl" deviceset="R-US_" device="0204/7" value="13K"/>
+<part name="R22" library="rcl" deviceset="R-US_" device="0204/7" value="1K"/>
+<part name="GND14" library="supply1" deviceset="GND" device=""/>
+<part name="SV3" library="con-lstb" deviceset="MA03-1" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -10609,6 +10613,11 @@ ICOM 4127-067</text>
 <text x="78.74" y="177.8" size="1.778" layer="92">Battery Ok - Green</text>
 <text x="101.6" y="177.8" size="1.778" layer="92">Autonomous Mode - Red</text>
 <text x="129.54" y="177.8" size="1.778" layer="92">System Ok - Green</text>
+<wire x1="147.32" y1="170.18" x2="147.32" y2="132.08" width="0.1524" layer="94"/>
+<wire x1="147.32" y1="132.08" x2="205.74" y2="132.08" width="0.1524" layer="94"/>
+<wire x1="205.74" y1="132.08" x2="205.74" y2="170.18" width="0.1524" layer="94"/>
+<wire x1="205.74" y1="170.18" x2="147.32" y2="170.18" width="0.1524" layer="94"/>
+<text x="160.02" y="170.18" size="1.778" layer="94">Multimeter</text>
 </plain>
 <instances>
 <instance part="LED_C" gate="A" x="116.84" y="208.28"/>
@@ -10703,6 +10712,11 @@ ICOM 4127-067</text>
 <attribute name="NAME" x="173.99" y="208.28" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="175.26" y="215.9" size="1.778" layer="96" rot="R90"/>
 </instance>
+<instance part="IC3" gate="B" x="177.8" y="154.94"/>
+<instance part="R21" gate="G$1" x="175.26" y="144.78" rot="R180"/>
+<instance part="R22" gate="G$1" x="165.1" y="144.78" rot="R180"/>
+<instance part="GND14" gate="1" x="160.02" y="142.24"/>
+<instance part="SV3" gate="G$1" x="154.94" y="154.94"/>
 </instances>
 <busses>
 </busses>
@@ -10855,6 +10869,10 @@ ICOM 4127-067</text>
 <pinref part="SV2" gate="G$1" pin="3"/>
 <pinref part="GND13" gate="1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="R22" gate="G$1" pin="2"/>
+<pinref part="GND14" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="N$2" class="0">
 <segment>
@@ -10950,14 +10968,10 @@ ICOM 4127-067</text>
 </net>
 <net name="N$13" class="0">
 <segment>
-<pinref part="R10" gate="G$1" pin="1"/>
 <pinref part="R9" gate="G$1" pin="1"/>
-<wire x1="127" y1="251.46" x2="132.08" y2="251.46" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="251.46" x2="132.08" y2="256.54" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="251.46" x2="139.7" y2="251.46" width="0.1524" layer="91"/>
-<junction x="132.08" y="251.46"/>
+<wire x1="132.08" y1="254" x2="132.08" y2="256.54" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="254" x2="139.7" y2="254" width="0.1524" layer="91"/>
 <pinref part="SV2" gate="G$1" pin="1"/>
-<wire x1="139.7" y1="251.46" x2="139.7" y2="254" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$19" class="0">
@@ -11238,6 +11252,56 @@ ICOM 4127-067</text>
 <net name="N$15" class="0">
 <segment>
 <wire x1="132.08" y1="243.84" x2="132.08" y2="241.3" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$34" class="0">
+<segment>
+<pinref part="R10" gate="G$1" pin="1"/>
+<pinref part="SV2" gate="G$1" pin="2"/>
+<wire x1="127" y1="251.46" x2="142.24" y2="251.46" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="251.46" x2="142.24" y2="254" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$36" class="0">
+<segment>
+<pinref part="IC3" gate="B" pin="OUT"/>
+<wire x1="185.42" y1="154.94" x2="187.96" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="187.96" y1="154.94" x2="208.28" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="208.28" y1="154.94" x2="208.28" y2="231.14" width="0.1524" layer="91"/>
+<wire x1="208.28" y1="231.14" x2="160.02" y2="231.14" width="0.1524" layer="91"/>
+<wire x1="160.02" y1="231.14" x2="160.02" y2="233.68" width="0.1524" layer="91"/>
+<pinref part="SV1" gate="G$1" pin="12"/>
+<wire x1="160.02" y1="233.68" x2="73.66" y2="233.68" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="233.68" x2="73.66" y2="271.78" width="0.1524" layer="91"/>
+<pinref part="R21" gate="G$1" pin="1"/>
+<wire x1="180.34" y1="144.78" x2="187.96" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="187.96" y1="144.78" x2="187.96" y2="154.94" width="0.1524" layer="91"/>
+<junction x="187.96" y="154.94"/>
+</segment>
+</net>
+<net name="N$37" class="0">
+<segment>
+<pinref part="SV3" gate="G$1" pin="3"/>
+<pinref part="IC3" gate="B" pin="+IN"/>
+<wire x1="162.56" y1="157.48" x2="167.64" y2="157.48" width="0.1524" layer="91"/>
+<pinref part="SV3" gate="G$1" pin="2"/>
+<wire x1="167.64" y1="157.48" x2="170.18" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="162.56" y1="154.94" x2="167.64" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="154.94" x2="167.64" y2="157.48" width="0.1524" layer="91"/>
+<junction x="167.64" y="157.48"/>
+<pinref part="SV3" gate="G$1" pin="1"/>
+<wire x1="162.56" y1="152.4" x2="167.64" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="167.64" y1="152.4" x2="167.64" y2="154.94" width="0.1524" layer="91"/>
+<junction x="167.64" y="154.94"/>
+</segment>
+</net>
+<net name="N$35" class="0">
+<segment>
+<pinref part="R21" gate="G$1" pin="2"/>
+<pinref part="R22" gate="G$1" pin="1"/>
+<pinref part="IC3" gate="B" pin="-IN"/>
+<wire x1="170.18" y1="152.4" x2="170.18" y2="144.78" width="0.1524" layer="91"/>
+<junction x="170.18" y="144.78"/>
 </segment>
 </net>
 </nets>

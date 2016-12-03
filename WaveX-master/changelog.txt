@@ -1,0 +1,14 @@
+changed sensor buffer 2 and sesnor buffer 3
+added 180 to getOrientation().
+Added turning implementation beta.
+Commented bluetooth check for now.
+Autonomous alone working - made backup.
+integracion de imu explota.
+stuck in getOrientation.
+Commented loop in tally. 
+Still stuck.
+Moved initCompass to start compass.
+Commented z axis
+Inverted IMU SDA, SCL PINS ON PCB!!!!
+Wire mod implemented.
+Uncommented loop, left initCompass in startCompass, left z axis commented

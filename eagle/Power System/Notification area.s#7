@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="7.3.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -9320,80 +9320,6 @@ general purpose rectifier, 1 A</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="buzzer">
-<description>&lt;b&gt;Speakers and Buzzers&lt;/b&gt;&lt;p&gt;
-&lt;ul&gt;Distributors:
-&lt;li&gt;Buerklin
-&lt;li&gt;Spoerle
-&lt;li&gt;Schukat
-&lt;/ul&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="F/BC35">
-<description>&lt;b&gt;BUZZER&lt;/b&gt;</description>
-<wire x1="-15.0612" y1="1.2505" x2="15.0612" y2="1.2505" width="0.1524" layer="21" curve="-170.507475"/>
-<wire x1="-15.0612" y1="-1.2505" x2="15.0612" y2="-1.2505" width="0.1524" layer="21" curve="170.507475"/>
-<wire x1="-17.272" y1="2.54" x2="-17.272" y2="-2.54" width="0.1524" layer="21" curve="180"/>
-<wire x1="-14.898" y1="-2.54" x2="-17.272" y2="-2.54" width="0.1524" layer="21"/>
-<wire x1="-15.0612" y1="-1.2505" x2="-15.0612" y2="1.2505" width="0.1524" layer="21" curve="58.987809"/>
-<wire x1="-14.898" y1="2.54" x2="-17.272" y2="2.54" width="0.1524" layer="21"/>
-<wire x1="17.272" y1="-2.54" x2="17.272" y2="2.54" width="0.1524" layer="21" curve="180"/>
-<wire x1="11.802" y1="-0.898" x2="13.598" y2="0.898" width="0.1524" layer="21"/>
-<wire x1="14.898" y1="-2.54" x2="17.272" y2="-2.54" width="0.1524" layer="21"/>
-<wire x1="15.0612" y1="1.2505" x2="15.0612" y2="-1.2505" width="0.1524" layer="21" curve="58.987809"/>
-<wire x1="14.898" y1="2.54" x2="17.272" y2="2.54" width="0.1524" layer="21"/>
-<circle x="0" y="0" radius="2.54" width="0.1524" layer="21"/>
-<circle x="-17.78" y="0" radius="1.143" width="0.1524" layer="21"/>
-<circle x="12.7" y="0" radius="1.27" width="0.1524" layer="21"/>
-<circle x="17.78" y="0" radius="1.143" width="0.1524" layer="21"/>
-<pad name="-" x="-8.763" y="0" drill="1.3208" diameter="3.1496" shape="octagon"/>
-<pad name="+" x="8.763" y="0" drill="1.3208" diameter="3.1496" shape="octagon"/>
-<text x="3.937" y="15.24" size="1.778" layer="25" ratio="10">&gt;NAME</text>
-<text x="-5.08" y="-7.62" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
-<hole x="17.78" y="0" drill="2.2098"/>
-<hole x="-17.78" y="0" drill="2.2098"/>
-</package>
-</packages>
-<symbols>
-<symbol name="B">
-<wire x1="-2.54" y1="5.08" x2="5.08" y2="5.08" width="0.254" layer="94" curve="180"/>
-<wire x1="-2.54" y1="5.08" x2="1.27" y2="5.08" width="0.254" layer="94"/>
-<wire x1="1.27" y1="1.27" x2="1.27" y2="5.08" width="0.1524" layer="94"/>
-<wire x1="1.27" y1="5.08" x2="5.08" y2="5.08" width="0.254" layer="94"/>
-<wire x1="2.54" y1="-2.54" x2="2.54" y2="1.397" width="0.1524" layer="94"/>
-<wire x1="0" y1="-2.54" x2="0" y2="1.397" width="0.1524" layer="94"/>
-<text x="-2.54" y="6.35" size="1.778" layer="95">&gt;NAME</text>
-<text x="5.08" y="0" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="-" x="5.08" y="-2.54" visible="pad" length="short" direction="pas" rot="R180"/>
-<pin name="+" x="-2.54" y="-2.54" visible="pad" length="short" direction="pas"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="F/BC35" prefix="SG">
-<description>&lt;b&gt;BUZZER&lt;/b&gt;&lt;p&gt;
-Source: Spoerle</description>
-<gates>
-<gate name="G$1" symbol="B" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="F/BC35">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="-" pad="-"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="MF" value="" constant="no"/>
-<attribute name="MPN" value="" constant="no"/>
-<attribute name="OC_FARNELL" value="unknown" constant="no"/>
-<attribute name="OC_NEWARK" value="unknown" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="con-lsta">
 <description>&lt;b&gt;Female Headers etc.&lt;/b&gt;&lt;p&gt;
 Naming:&lt;p&gt;
@@ -10403,6 +10329,127 @@ W = angled&lt;p&gt;
 </deviceset>
 </devicesets>
 </library>
+<library name="buzzer">
+<description>&lt;b&gt;Speakers and Buzzers&lt;/b&gt;&lt;p&gt;
+&lt;ul&gt;Distributors:
+&lt;li&gt;Buerklin
+&lt;li&gt;Spoerle
+&lt;li&gt;Schukat
+&lt;/ul&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="F/DB18">
+<description>&lt;b&gt;BUZZER&lt;/b&gt;</description>
+<wire x1="-19.414" y1="4.5522" x2="-20.684" y2="-3.283" width="0.1524" layer="21" curve="107.750176"/>
+<wire x1="1.016" y1="-4.4577" x2="2.4336" y2="-3.8705" width="0.1524" layer="21" curve="19.320241"/>
+<wire x1="1.016" y1="4.4577" x2="2.4336" y2="3.8705" width="0.1524" layer="21" curve="-19.320241"/>
+<wire x1="1.016" y1="-8.3202" x2="5.1648" y2="-6.6017" width="0.1524" layer="21" curve="31.07551"/>
+<wire x1="1.016" y1="8.3202" x2="5.1648" y2="6.6017" width="0.1524" layer="21" curve="-31.07551"/>
+<wire x1="1.016" y1="7.039" x2="4.2589" y2="5.6958" width="0.1524" layer="21" curve="-28.5733"/>
+<wire x1="1.016" y1="-7.0391" x2="4.2589" y2="-5.6958" width="0.1524" layer="21" curve="28.573085"/>
+<wire x1="-4.4577" y1="1.016" x2="-3.8705" y2="2.4336" width="0.1524" layer="21" curve="-19.320241"/>
+<wire x1="-8.3202" y1="1.016" x2="-6.6017" y2="5.1648" width="0.1524" layer="21" curve="-31.07551"/>
+<wire x1="-7.0391" y1="1.016" x2="-6.9469" y2="1.5235" width="0.1524" layer="51" curve="-4.156279"/>
+<wire x1="-8.311" y1="-11.387" x2="-20.684" y2="-3.283" width="0.1524" layer="21"/>
+<wire x1="-10.875" y1="1.016" x2="-8.121" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="-10.875" y1="-1.016" x2="-8.121" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="1.016" y1="-10.875" x2="1.016" y2="-3.142" width="0.1524" layer="21"/>
+<wire x1="-1.016" y1="-10.875" x2="-1.016" y2="-3.142" width="0.1524" layer="21"/>
+<wire x1="-7.069" y1="-8.326" x2="-1.62" y2="-2.877" width="0.1524" layer="21"/>
+<wire x1="-8.408" y1="-6.971" x2="-2.94" y2="-1.503" width="0.1524" layer="21"/>
+<wire x1="-4.3609" y1="-5.6181" x2="-1.016" y2="-7.0391" width="0.1524" layer="21" curve="29.606123"/>
+<wire x1="-5.2649" y1="-6.5222" x2="-1.016" y2="-8.3202" width="0.1524" layer="21" curve="31.949416"/>
+<wire x1="-4.4577" y1="-1.016" x2="-3.8705" y2="-2.4336" width="0.1524" layer="21" curve="19.320241"/>
+<wire x1="-5.849" y1="1.016" x2="-3.142" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="-5.849" y1="-1.016" x2="-3.142" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="-8.3202" y1="-1.016" x2="-6.6017" y2="-5.1648" width="0.1524" layer="21" curve="31.07551"/>
+<wire x1="-6.9469" y1="-1.5235" x2="-5.6958" y2="-4.2589" width="0.1524" layer="21" curve="24.416898"/>
+<wire x1="-8.121" y1="1.016" x2="-5.849" y2="1.016" width="0.1524" layer="51"/>
+<wire x1="-7.0391" y1="-1.016" x2="-6.9469" y2="-1.5235" width="0.1524" layer="51" curve="4.156279"/>
+<wire x1="-8.121" y1="-1.016" x2="-5.849" y2="-1.016" width="0.1524" layer="51"/>
+<wire x1="-2.5426" y1="-3.7998" x2="-1.016" y2="-4.4577" width="0.1524" layer="21" curve="20.948515"/>
+<wire x1="-8.311" y1="11.387" x2="-19.414" y2="4.553" width="0.1524" layer="21"/>
+<wire x1="-6.971" y1="8.408" x2="-1.503" y2="2.94" width="0.1524" layer="21"/>
+<wire x1="-1.016" y1="3.142" x2="-1.016" y2="10.875" width="0.1524" layer="21"/>
+<wire x1="1.016" y1="3.142" x2="1.016" y2="10.875" width="0.1524" layer="21"/>
+<wire x1="-5.1648" y1="6.6017" x2="-1.016" y2="8.3202" width="0.1524" layer="21" curve="-31.07551"/>
+<wire x1="-8.408" y1="6.971" x2="-2.94" y2="1.503" width="0.1524" layer="21"/>
+<wire x1="-4.2589" y1="5.6958" x2="-1.016" y2="7.0391" width="0.1524" layer="21" curve="-28.573085"/>
+<wire x1="-6.9469" y1="1.5235" x2="-5.6958" y2="4.2589" width="0.1524" layer="21" curve="-24.416898"/>
+<wire x1="-2.4336" y1="3.8705" x2="-1.016" y2="4.4577" width="0.1524" layer="21" curve="-19.320241"/>
+<wire x1="20.684" y1="-3.283" x2="20.684" y2="3.2822" width="0.1524" layer="21" curve="107.750176"/>
+<wire x1="3.7998" y1="2.5426" x2="4.4577" y2="1.016" width="0.1524" layer="21" curve="-20.948515"/>
+<wire x1="6.5222" y1="5.2649" x2="8.3202" y2="1.016" width="0.1524" layer="21" curve="-31.949416"/>
+<wire x1="6.9469" y1="1.5235" x2="7.0391" y2="1.016" width="0.1524" layer="51" curve="-4.156279"/>
+<wire x1="8.311" y1="-11.387" x2="20.684" y2="-3.283" width="0.1524" layer="21"/>
+<wire x1="2.94" y1="-1.503" x2="8.408" y2="-6.971" width="0.1524" layer="21"/>
+<wire x1="1.503" y1="-2.94" x2="6.971" y2="-8.408" width="0.1524" layer="21"/>
+<wire x1="6.6017" y1="-5.1648" x2="8.3202" y2="-1.016" width="0.1524" layer="21" curve="31.07551"/>
+<wire x1="5.6958" y1="-4.2589" x2="6.9469" y2="-1.5235" width="0.1524" layer="21" curve="24.416898"/>
+<wire x1="5.849" y1="1.016" x2="8.121" y2="1.016" width="0.1524" layer="51"/>
+<wire x1="5.849" y1="-1.016" x2="8.121" y2="-1.016" width="0.1524" layer="51"/>
+<wire x1="3.8705" y1="-2.4336" x2="4.4577" y2="-1.016" width="0.1524" layer="21" curve="19.320241"/>
+<wire x1="3.142" y1="1.016" x2="5.849" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="3.142" y1="-1.016" x2="5.849" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="8.121" y1="1.016" x2="10.875" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="8.121" y1="-1.016" x2="10.875" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="6.9469" y1="-1.5235" x2="7.0391" y2="-1.016" width="0.1524" layer="51" curve="4.156279"/>
+<wire x1="8.311" y1="11.387" x2="20.684" y2="3.283" width="0.1524" layer="21"/>
+<wire x1="1.503" y1="2.94" x2="6.971" y2="8.408" width="0.1524" layer="21"/>
+<wire x1="2.877" y1="1.62" x2="8.326" y2="7.069" width="0.1524" layer="21"/>
+<wire x1="5.6181" y1="4.3609" x2="6.9469" y2="1.5235" width="0.1524" layer="21" curve="-25.449943"/>
+<circle x="0" y="0" radius="14.097" width="0.1524" layer="21"/>
+<circle x="0" y="0" radius="3.302" width="0.1524" layer="21"/>
+<circle x="0" y="0" radius="10.922" width="0.1524" layer="21"/>
+<circle x="-19.558" y="0" radius="1.778" width="0.1524" layer="21"/>
+<circle x="19.558" y="0" radius="1.778" width="0.1524" layer="21"/>
+<pad name="-" x="-10.8204" y="-11.43" drill="1.016" diameter="2.54" shape="octagon"/>
+<pad name="+" x="-6.9596" y="-13.97" drill="1.016" diameter="2.54" shape="octagon"/>
+<text x="8.89" y="11.43" size="1.778" layer="25" ratio="10">&gt;NAME</text>
+<text x="10.16" y="-12.065" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
+<hole x="19.558" y="0" drill="3.6068"/>
+<hole x="-19.558" y="0" drill="3.6068"/>
+</package>
+</packages>
+<symbols>
+<symbol name="B">
+<wire x1="-2.54" y1="5.08" x2="5.08" y2="5.08" width="0.254" layer="94" curve="180"/>
+<wire x1="-2.54" y1="5.08" x2="1.27" y2="5.08" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.27" x2="1.27" y2="5.08" width="0.1524" layer="94"/>
+<wire x1="1.27" y1="5.08" x2="5.08" y2="5.08" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-2.54" x2="2.54" y2="1.397" width="0.1524" layer="94"/>
+<wire x1="0" y1="-2.54" x2="0" y2="1.397" width="0.1524" layer="94"/>
+<text x="-2.54" y="6.35" size="1.778" layer="95">&gt;NAME</text>
+<text x="5.08" y="0" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="-" x="5.08" y="-2.54" visible="pad" length="short" direction="pas" rot="R180"/>
+<pin name="+" x="-2.54" y="-2.54" visible="pad" length="short" direction="pas"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="F/DB18" prefix="SG">
+<description>&lt;b&gt;BUZZER&lt;/b&gt;&lt;p&gt; Source: Buerklin</description>
+<gates>
+<gate name="G$1" symbol="B" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="F/DB18">
+<connects>
+<connect gate="G$1" pin="+" pad="+"/>
+<connect gate="G$1" pin="-" pad="-"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="MF" value="" constant="no"/>
+<attribute name="MPN" value="" constant="no"/>
+<attribute name="OC_FARNELL" value="unknown" constant="no"/>
+<attribute name="OC_NEWARK" value="unknown" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -10460,7 +10507,6 @@ W = angled&lt;p&gt;
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="+5V" device=""/>
 <part name="T5" library="transistor-neu-to92" deviceset="*-NPN-" device="TO92-EBC" technology="2N2222"/>
-<part name="SG1" library="buzzer" deviceset="F/BC35" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="P+1" library="supply1" deviceset="V+" device="" value="9.6V"/>
 <part name="R11" library="rcl" deviceset="R-US_" device="0204/7" value="614"/>
@@ -10494,6 +10540,7 @@ W = angled&lt;p&gt;
 <part name="C9" library="capacitor-wima" deviceset="C" device="2,5-3" value="2uF"/>
 <part name="P+6" library="supply1" deviceset="V+" device="" value="9.6V"/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
+<part name="SG1" library="buzzer" deviceset="F/DB18" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -10560,7 +10607,7 @@ ICOM 4127-067</text>
 <text x="160.02" y="309.88" size="1.778" layer="94">Battery Monitor</text>
 <text x="55.88" y="177.8" size="1.778" layer="92">Bluetooth - Blue</text>
 <text x="78.74" y="177.8" size="1.778" layer="92">Battery Ok - Green</text>
-<text x="104.14" y="177.8" size="1.778" layer="92">Battery Empty - Red</text>
+<text x="101.6" y="177.8" size="1.778" layer="92">Autonomous Mode - Red</text>
 <text x="129.54" y="177.8" size="1.778" layer="92">System Ok - Green</text>
 </plain>
 <instances>
@@ -10610,8 +10657,10 @@ ICOM 4127-067</text>
 <instance part="D3" gate="1" x="-40.64" y="215.9" rot="R180"/>
 <instance part="GND9" gate="1" x="-33.02" y="165.1"/>
 <instance part="P+2" gate="1" x="15.24" y="203.2"/>
-<instance part="T5" gate="G$1" x="180.34" y="198.12"/>
-<instance part="SG1" gate="G$1" x="180.34" y="208.28" rot="R90"/>
+<instance part="T5" gate="G$1" x="180.34" y="198.12" smashed="yes">
+<attribute name="NAME" x="182.88" y="198.12" size="1.778" layer="95"/>
+<attribute name="VALUE" x="170.18" y="203.2" size="1.778" layer="96"/>
+</instance>
 <instance part="GND10" gate="1" x="175.26" y="190.5"/>
 <instance part="P+1" gate="1" x="-116.84" y="302.26"/>
 <instance part="R11" gate="G$1" x="-43.18" y="172.72" rot="R90"/>
@@ -10650,6 +10699,10 @@ ICOM 4127-067</text>
 <instance part="C9" gate="G$1" x="5.08" y="182.88"/>
 <instance part="P+6" gate="1" x="-101.6" y="200.66"/>
 <instance part="GND13" gate="1" x="144.78" y="251.46"/>
+<instance part="SG1" gate="G$1" x="180.34" y="208.28" smashed="yes" rot="R90">
+<attribute name="NAME" x="173.99" y="208.28" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="175.26" y="215.9" size="1.778" layer="96" rot="R90"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -10968,7 +11021,6 @@ ICOM 4127-067</text>
 <pinref part="C8" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<pinref part="SG1" gate="G$1" pin="-"/>
 <pinref part="P+3" gate="1" pin="+5V"/>
 <wire x1="182.88" y1="218.44" x2="182.88" y2="215.9" width="0.1524" layer="91"/>
 <pinref part="D9" gate="1" pin="C"/>
@@ -10976,6 +11028,7 @@ ICOM 4127-067</text>
 <wire x1="182.88" y1="215.9" x2="187.96" y2="215.9" width="0.1524" layer="91"/>
 <wire x1="187.96" y1="215.9" x2="187.96" y2="210.82" width="0.1524" layer="91"/>
 <junction x="182.88" y="215.9"/>
+<pinref part="SG1" gate="G$1" pin="-"/>
 </segment>
 </net>
 <net name="N$24" class="0">
@@ -11063,12 +11116,12 @@ ICOM 4127-067</text>
 <net name="N$21" class="0">
 <segment>
 <pinref part="T5" gate="G$1" pin="C"/>
-<pinref part="SG1" gate="G$1" pin="+"/>
 <wire x1="182.88" y1="205.74" x2="182.88" y2="203.2" width="0.1524" layer="91"/>
 <pinref part="D9" gate="1" pin="A"/>
 <wire x1="187.96" y1="205.74" x2="187.96" y2="203.2" width="0.1524" layer="91"/>
 <wire x1="187.96" y1="203.2" x2="182.88" y2="203.2" width="0.1524" layer="91"/>
 <junction x="182.88" y="203.2"/>
+<pinref part="SG1" gate="G$1" pin="+"/>
 </segment>
 </net>
 <net name="N$22" class="0">

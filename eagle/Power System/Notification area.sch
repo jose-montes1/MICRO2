@@ -10604,13 +10604,13 @@ ICOM 4127-067</text>
 <wire x1="-96.52" y1="167.64" x2="-129.54" y2="167.64" width="0.1524" layer="94"/>
 <wire x1="-129.54" y1="167.64" x2="-129.54" y2="208.28" width="0.1524" layer="94"/>
 <text x="-129.54" y="208.28" size="1.778" layer="94">Motor relay passthrough</text>
-<wire x1="160.02" y1="309.88" x2="160.02" y2="246.38" width="0.1524" layer="94"/>
-<wire x1="160.02" y1="246.38" x2="205.74" y2="246.38" width="0.1524" layer="94"/>
-<wire x1="205.74" y1="246.38" x2="205.74" y2="309.88" width="0.1524" layer="94"/>
-<wire x1="205.74" y1="309.88" x2="160.02" y2="309.88" width="0.1524" layer="94"/>
-<text x="160.02" y="309.88" size="1.778" layer="94">Battery Monitor</text>
+<wire x1="157.48" y1="312.42" x2="157.48" y2="248.92" width="0.1524" layer="94"/>
+<wire x1="157.48" y1="248.92" x2="215.9" y2="248.92" width="0.1524" layer="94"/>
+<wire x1="215.9" y1="248.92" x2="215.9" y2="312.42" width="0.1524" layer="94"/>
+<wire x1="215.9" y1="312.42" x2="157.48" y2="312.42" width="0.1524" layer="94"/>
+<text x="157.48" y="312.42" size="1.778" layer="94">Battery Monitor</text>
 <text x="55.88" y="177.8" size="1.778" layer="92">Bluetooth - Blue</text>
-<text x="78.74" y="177.8" size="1.778" layer="92">Battery Ok - Green</text>
+<text x="78.74" y="180.34" size="1.778" layer="92">Battery Ok - Green</text>
 <text x="101.6" y="177.8" size="1.778" layer="92">Autonomous Mode - Red</text>
 <text x="129.54" y="177.8" size="1.778" layer="92">System Ok - Green</text>
 <wire x1="147.32" y1="170.18" x2="147.32" y2="132.08" width="0.1524" layer="94"/>
@@ -10623,27 +10623,27 @@ ICOM 4127-067</text>
 <instance part="LED_C" gate="A" x="116.84" y="208.28"/>
 <instance part="LED_D" gate="A" x="139.7" y="208.28"/>
 <instance part="LED_A" gate="A" x="66.04" y="205.74"/>
-<instance part="LED_B" gate="A" x="91.44" y="205.74"/>
+<instance part="LED_B" gate="A" x="91.44" y="208.28"/>
 <instance part="T1" gate="G$1" x="114.3" y="193.04"/>
 <instance part="T2" gate="G$1" x="137.16" y="193.04"/>
 <instance part="T3" gate="G$1" x="63.5" y="190.5"/>
-<instance part="T4" gate="G$1" x="88.9" y="190.5"/>
+<instance part="T4" gate="G$1" x="88.9" y="193.04"/>
 <instance part="R1" gate="G$1" x="116.84" y="200.66" rot="R90"/>
 <instance part="R2" gate="G$1" x="106.68" y="193.04" rot="R180"/>
 <instance part="R3" gate="G$1" x="139.7" y="200.66" rot="R270"/>
 <instance part="R4" gate="G$1" x="129.54" y="193.04"/>
 <instance part="R5" gate="G$1" x="66.04" y="198.12" rot="R90"/>
 <instance part="R6" gate="G$1" x="55.88" y="190.5" rot="R180"/>
-<instance part="R7" gate="G$1" x="91.44" y="198.12" rot="R270"/>
-<instance part="R8" gate="G$1" x="81.28" y="190.5"/>
+<instance part="R7" gate="G$1" x="91.44" y="200.66" rot="R270"/>
+<instance part="R8" gate="G$1" x="81.28" y="193.04"/>
 <instance part="+3V1" gate="G$1" x="66.04" y="213.36"/>
-<instance part="+3V3" gate="G$1" x="91.44" y="213.36"/>
+<instance part="+3V3" gate="G$1" x="91.44" y="215.9"/>
 <instance part="+3V4" gate="G$1" x="139.7" y="215.9"/>
 <instance part="+3V5" gate="G$1" x="116.84" y="215.9"/>
 <instance part="GND2" gate="1" x="116.84" y="185.42"/>
 <instance part="GND3" gate="1" x="139.7" y="185.42"/>
 <instance part="GND4" gate="1" x="66.04" y="182.88"/>
-<instance part="GND5" gate="1" x="91.44" y="182.88"/>
+<instance part="GND5" gate="1" x="91.44" y="185.42"/>
 <instance part="R9" gate="G$1" x="132.08" y="261.62" rot="R90"/>
 <instance part="R10" gate="G$1" x="121.92" y="251.46" rot="R180"/>
 <instance part="GND6" gate="1" x="132.08" y="241.3"/>
@@ -10682,26 +10682,26 @@ ICOM 4127-067</text>
 <instance part="FRAME1" gate="G$1" x="-175.26" y="91.44"/>
 <instance part="FRAME1" gate="G$2" x="149.86" y="91.44"/>
 <instance part="SV1" gate="G$1" x="58.42" y="279.4" rot="R270"/>
-<instance part="IC3" gate="A" x="175.26" y="261.62" rot="R180"/>
-<instance part="P+4" gate="1" x="185.42" y="304.8"/>
-<instance part="T6" gate="G$1" x="190.5" y="289.56"/>
-<instance part="R14" gate="G$1" x="182.88" y="289.56" rot="R180"/>
-<instance part="R16" gate="G$1" x="177.8" y="294.64" rot="R270"/>
-<instance part="R18" gate="G$1" x="193.04" y="279.4" rot="R270"/>
-<instance part="R19" gate="G$1" x="193.04" y="264.16" rot="R90"/>
-<instance part="T7" gate="G$1" x="175.26" y="284.48"/>
-<instance part="GND7" gate="1" x="177.8" y="276.86"/>
-<instance part="GND11" gate="1" x="193.04" y="256.54"/>
-<instance part="IC3" gate="P" x="175.26" y="261.62"/>
+<instance part="IC3" gate="A" x="185.42" y="264.16" rot="R180"/>
+<instance part="P+4" gate="1" x="195.58" y="307.34"/>
+<instance part="T6" gate="G$1" x="200.66" y="292.1"/>
+<instance part="R14" gate="G$1" x="193.04" y="292.1" rot="R180"/>
+<instance part="R16" gate="G$1" x="187.96" y="297.18" rot="R270"/>
+<instance part="R18" gate="G$1" x="203.2" y="281.94" rot="R270"/>
+<instance part="R19" gate="G$1" x="203.2" y="266.7" rot="R90"/>
+<instance part="T7" gate="G$1" x="185.42" y="287.02"/>
+<instance part="GND7" gate="1" x="187.96" y="279.4"/>
+<instance part="GND11" gate="1" x="203.2" y="259.08"/>
+<instance part="IC3" gate="P" x="185.42" y="264.16"/>
 <instance part="D9" gate="1" x="187.96" y="208.28" rot="R90"/>
-<instance part="R20" gate="G$1" x="167.64" y="284.48" rot="R180"/>
+<instance part="R20" gate="G$1" x="177.8" y="287.02" rot="R180"/>
 <instance part="PAD3" gate="G$1" x="-121.92" y="294.64" smashed="yes">
 <attribute name="NAME" x="-123.063" y="296.4942" size="1.778" layer="95"/>
 <attribute name="VALUE" x="-123.063" y="291.338" size="1.778" layer="96"/>
 </instance>
 <instance part="PAD4" gate="G$1" x="-121.92" y="287.02"/>
-<instance part="P+5" gate="1" x="175.26" y="271.78"/>
-<instance part="GND12" gate="1" x="175.26" y="251.46"/>
+<instance part="P+5" gate="1" x="185.42" y="274.32"/>
+<instance part="GND12" gate="1" x="185.42" y="254"/>
 <instance part="SV2" gate="G$1" x="142.24" y="261.62" rot="R270"/>
 <instance part="C7" gate="G$1" x="-17.78" y="264.16"/>
 <instance part="C8" gate="G$1" x="5.08" y="190.5"/>
@@ -10943,7 +10943,7 @@ ICOM 4127-067</text>
 <net name="N$11" class="0">
 <segment>
 <pinref part="R8" gate="G$1" pin="1"/>
-<wire x1="76.2" y1="218.44" x2="76.2" y2="190.5" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="218.44" x2="76.2" y2="193.04" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="218.44" x2="63.5" y2="218.44" width="0.1524" layer="91"/>
 <wire x1="63.5" y1="218.44" x2="63.5" y2="233.68" width="0.1524" layer="91"/>
 <pinref part="SV1" gate="G$1" pin="5"/>
@@ -11061,12 +11061,12 @@ ICOM 4127-067</text>
 <segment>
 <pinref part="R16" gate="G$1" pin="1"/>
 <pinref part="P+4" gate="1" pin="V+"/>
-<wire x1="177.8" y1="299.72" x2="185.42" y2="299.72" width="0.1524" layer="91"/>
-<wire x1="185.42" y1="299.72" x2="185.42" y2="302.26" width="0.1524" layer="91"/>
+<wire x1="187.96" y1="302.26" x2="195.58" y2="302.26" width="0.1524" layer="91"/>
+<wire x1="195.58" y1="302.26" x2="195.58" y2="304.8" width="0.1524" layer="91"/>
 <pinref part="T6" gate="G$1" pin="E"/>
-<wire x1="185.42" y1="299.72" x2="193.04" y2="299.72" width="0.1524" layer="91"/>
-<wire x1="193.04" y1="299.72" x2="193.04" y2="294.64" width="0.1524" layer="91"/>
-<junction x="185.42" y="299.72"/>
+<wire x1="195.58" y1="302.26" x2="203.2" y2="302.26" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="302.26" x2="203.2" y2="297.18" width="0.1524" layer="91"/>
+<junction x="195.58" y="302.26"/>
 </segment>
 <segment>
 <pinref part="IC3" gate="P" pin="V+"/>
@@ -11149,7 +11149,7 @@ ICOM 4127-067</text>
 <pinref part="R14" gate="G$1" pin="2"/>
 <pinref part="R16" gate="G$1" pin="2"/>
 <pinref part="T7" gate="G$1" pin="C"/>
-<junction x="177.8" y="289.56"/>
+<junction x="187.96" y="292.1"/>
 <pinref part="T7" gate="G$1" pin="C"/>
 </segment>
 </net>
@@ -11163,44 +11163,23 @@ ICOM 4127-067</text>
 <segment>
 <pinref part="R18" gate="G$1" pin="2"/>
 <pinref part="R19" gate="G$1" pin="2"/>
-<wire x1="193.04" y1="269.24" x2="193.04" y2="271.78" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="271.78" x2="203.2" y2="274.32" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="A" pin="+IN"/>
-<wire x1="193.04" y1="271.78" x2="193.04" y2="274.32" width="0.1524" layer="91"/>
-<wire x1="182.88" y1="259.08" x2="187.96" y2="259.08" width="0.1524" layer="91"/>
-<wire x1="187.96" y1="259.08" x2="187.96" y2="271.78" width="0.1524" layer="91"/>
-<wire x1="187.96" y1="271.78" x2="193.04" y2="271.78" width="0.1524" layer="91"/>
-<junction x="193.04" y="271.78"/>
-</segment>
-</net>
-<net name="N$28" class="0">
-<segment>
-<wire x1="157.48" y1="284.48" x2="157.48" y2="259.08" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="259.08" x2="152.4" y2="259.08" width="0.1524" layer="91"/>
-<wire x1="152.4" y1="259.08" x2="152.4" y2="284.48" width="0.1524" layer="91"/>
-<wire x1="152.4" y1="284.48" x2="99.06" y2="284.48" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="284.48" x2="99.06" y2="259.08" width="0.1524" layer="91"/>
-<pinref part="SV1" gate="G$1" pin="10"/>
-<wire x1="99.06" y1="259.08" x2="68.58" y2="259.08" width="0.1524" layer="91"/>
-<wire x1="68.58" y1="259.08" x2="68.58" y2="271.78" width="0.1524" layer="91"/>
-<pinref part="R20" gate="G$1" pin="2"/>
-<wire x1="157.48" y1="284.48" x2="162.56" y2="284.48" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="274.32" x2="203.2" y2="276.86" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="261.62" x2="198.12" y2="261.62" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="261.62" x2="198.12" y2="274.32" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="274.32" x2="203.2" y2="274.32" width="0.1524" layer="91"/>
+<junction x="203.2" y="274.32"/>
 </segment>
 </net>
 <net name="N$26" class="0">
 <segment>
-<pinref part="IC3" gate="A" pin="OUT"/>
-<wire x1="167.64" y1="273.304" x2="167.64" y2="261.62" width="0.1524" layer="91"/>
-<wire x1="167.64" y1="261.62" x2="154.94" y2="261.62" width="0.1524" layer="91"/>
-<wire x1="154.94" y1="261.62" x2="154.94" y2="287.02" width="0.1524" layer="91"/>
-<wire x1="154.94" y1="287.02" x2="96.52" y2="287.02" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="287.02" x2="96.52" y2="287.02" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="287.02" x2="96.52" y2="261.62" width="0.1524" layer="91"/>
-<junction x="167.64" y="261.62"/>
 <pinref part="SV1" gate="G$1" pin="11"/>
 <wire x1="96.52" y1="261.62" x2="71.12" y2="261.62" width="0.1524" layer="91"/>
 <wire x1="71.12" y1="261.62" x2="71.12" y2="271.78" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="A" pin="-IN"/>
-<wire x1="182.88" y1="264.16" x2="182.88" y2="273.304" width="0.1524" layer="91"/>
-<wire x1="167.64" y1="273.304" x2="182.88" y2="273.304" width="0.1524" layer="91"/>
+<pinref part="R20" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$29" class="0">
@@ -11232,7 +11211,7 @@ ICOM 4127-067</text>
 <segment>
 <pinref part="T4" gate="G$1" pin="C"/>
 <pinref part="R7" gate="G$1" pin="2"/>
-<wire x1="91.44" y1="193.04" x2="91.44" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="195.58" x2="91.44" y2="198.12" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$32" class="0">
@@ -11302,6 +11281,23 @@ ICOM 4127-067</text>
 <pinref part="IC3" gate="B" pin="-IN"/>
 <wire x1="170.18" y1="152.4" x2="170.18" y2="144.78" width="0.1524" layer="91"/>
 <junction x="170.18" y="144.78"/>
+</segment>
+</net>
+<net name="N$39" class="0">
+<segment>
+<pinref part="IC3" gate="A" pin="OUT"/>
+<pinref part="IC3" gate="A" pin="-IN"/>
+<wire x1="193.04" y1="266.7" x2="193.04" y2="275.844" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="275.844" x2="193.04" y2="275.844" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="275.844" x2="177.8" y2="264.16" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="264.16" x2="152.4" y2="284.48" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="284.48" x2="99.06" y2="284.48" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="284.48" x2="99.06" y2="259.08" width="0.1524" layer="91"/>
+<pinref part="SV1" gate="G$1" pin="10"/>
+<wire x1="99.06" y1="259.08" x2="68.58" y2="259.08" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="259.08" x2="68.58" y2="271.78" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="264.16" x2="152.4" y2="264.16" width="0.1524" layer="91"/>
+<junction x="177.8" y="264.16"/>
 </segment>
 </net>
 </nets>
